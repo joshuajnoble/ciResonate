@@ -1,22 +1,74 @@
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
-#include "ciXtractReceiver.h"
 #include "cinder/params/Params.h"
+#include <boost/circular_buffer.hpp>
+#include "ciXtractReceiver.h"
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+/*
+    **************************
+    *** LibXtract Features ***
+    **************************
+
+    XTRACT_SPECTRAL_CENTROID,
+    XTRACT_VARIANCE,
+    XTRACT_HARMONIC_SPECTRUM
+    XTRACT_MEAN,
+    XTRACT_VARIANCE,
+    XTRACT_STANDARD_DEVIATION,
+    XTRACT_AVERAGE_DEVIATION,
+    XTRACT_SKEWNESS,
+    XTRACT_KURTOSIS,
+    XTRACT_SPECTRAL_MEAN,
+    XTRACT_SPECTRAL_VARIANCE,
+    XTRACT_SPECTRAL_STANDARD_DEVIATION,
+    XTRACT_SPECTRAL_SKEWNESS,
+    XTRACT_SPECTRAL_KURTOSIS,
+    XTRACT_SPECTRAL_CENTROID,
+    XTRACT_IRREGULARITY_K,
+    XTRACT_IRREGULARITY_J,
+    XTRACT_TRISTIMULUS_1,
+    XTRACT_SMOOTHNESS,
+    XTRACT_SPREAD,
+    XTRACT_ZCR,
+    XTRACT_ROLLOFF,
+    XTRACT_LOUDNESS,
+    XTRACT_FLATNESS,
+    XTRACT_FLATNESS_DB,
+    XTRACT_TONALITY,
+    XTRACT_CREST,
+    XTRACT_NOISINESS,
+    XTRACT_RMS_AMPLITUDE,
+    XTRACT_SPECTRAL_INHARMONICITY,
+    XTRACT_POWER,
+    XTRACT_ODD_EVEN_RATIO,
+    XTRACT_SHARPNESS,
+    XTRACT_SPECTRAL_SLOPE,
+    XTRACT_LOWEST_VALUE,
+    XTRACT_HIGHEST_VALUE,
+    XTRACT_SUM,
+    XTRACT_NONZERO_COUNT,
+    XTRACT_HPS,
+    XTRACT_F0,
+    XTRACT_FAILSAFE_F0,
+    XTRACT_WAVELET_F0,
+    XTRACT_AUTOCORRELATION,
+    XTRACT_BARK_COEFFICIENTS,
+    XTRACT_PEAK_SPECTRUM,
+    XTRACT_SPECTRUM,
+    XTRACT_MFCC,
+    XTRACT_HARMONIC_SPECTRUM,
+    XTRACT_SUBBANDS
+*/
+
 
 class SoundAnalysisApp : public AppNative {
     
 public:
-    
-    //    enum AvailableFeatures {
-    //        "XTRACT_SPECTRUM",
-    //        "XTRACT_BARK_COEFFICIENTS"
-    //    };
     
     void prepareSettings(Settings *settings);
 	void setup();
@@ -27,17 +79,23 @@ public:
     void initGui();
     void drawData( FeatureDataRef feature, Rectf rect );
     
+    void selectFeature( string name );
+    
 public:
     
-    ciXtractReceiverRef     mXtract;
-    FeatureDataRef          mData;
-    float                   mDataGain;
-    float                   mDataOffset;
-    float                   mDataDamping;
-    float                   mDataSpread;
-    float                   mDataSpreadOffset;
+    ciXtractReceiverRef             mXtract;
+    FeatureDataRef                  mData;
+    float                           mDataGain;
+    float                           mDataOffset;
+    float                           mDataDamping;
+    float                           mDataSpread;
+    float                           mDataSpreadOffset;
+    vector<string>                  mAvailableFeatures;
+    int                             mActiveFeature;
+    bool                            mDataIsLog;
+    boost::circular_buffer<float>   mDataBuffer;
     
-    params::InterfaceGlRef  mParams;
+    params::InterfaceGlRef          mParams;
 };
 
 
@@ -54,12 +112,20 @@ void SoundAnalysisApp::setup()
     mDataDamping        = 0.85f;
     mDataSpread         = 1.0f;
     mDataSpreadOffset   = 0.0f;
+    mActiveFeature      = 0;
+    mDataIsLog          = false;
+    
+    mDataBuffer.resize( 100 );
+    
+    mAvailableFeatures.push_back( "XTRACT_SPECTRUM" );
+    mAvailableFeatures.push_back( "XTRACT_BARK_COEFFICIENTS" );
+    mAvailableFeatures.push_back( "XTRACT_MEAN" );
+    mAvailableFeatures.push_back( "XTRACT_SPREAD" );
     
     initGui();
     
+    // setup receiver
     mXtract = ciXtractReceiver::create();
-	mData   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
-    mData->setLog( true );
 }
 
 
@@ -70,6 +136,17 @@ void SoundAnalysisApp::mouseDown( MouseEvent event )
 
 void SoundAnalysisApp::update()
 {
+    // change feature
+    if ( !mData || mData->getName() != mAvailableFeatures[mActiveFeature] )
+        selectFeature( mAvailableFeatures[mActiveFeature] );
+    
+    // set feature properties
+    mData->setLog( mDataIsLog );
+    mData->setGain( mDataGain );
+    mData->setOffset( mDataOffset );
+    mData->setDamping( mDataDamping );
+ 
+    // process audio analysis
     mXtract->update();
 }
 
@@ -80,68 +157,106 @@ void SoundAnalysisApp::draw()
     
     gl::enableAlphaBlending();
     
-    drawData( mData, Rectf( 15, 15, 200, 50 ) );
+    drawData( mData, Rectf( 16, 250, 236, 320 ) );
+    
+    mParams->draw();
 }
 
 
 void SoundAnalysisApp::initGui()
 {
-    mParams = params::InterfaceGl::create( "Settings", Vec2f( 200, 250 ) );
+    mParams = params::InterfaceGl::create( "Settings", Vec2f( 220, 200 ) );
     
-    mParams->addParam( "Data Gain",     &mDataGain,         "min=0.0 max=25.0 step=0.1" );
+    mParams->addParam( "Data Gain",     &mDataGain,         "min=0.0 max=100.0 step=0.1" );
     mParams->addParam( "Data Offset",   &mDataOffset,       "min=-1.0 max=1.0 step=0.01" );
     mParams->addParam( "Data Damping",  &mDataDamping,      "min=0.0 max=0.99 step=0.01" );
+    mParams->addParam( "Use log",       &mDataIsLog );
     mParams->addParam( "Spread",        &mDataSpread,       "min=0.0 max=1.0 step=0.01" );
     mParams->addParam( "Spread Offset", &mDataSpreadOffset, "min=0.0 max=1.0 step=0.01" );
+    mParams->addParam( "Feature",       mAvailableFeatures, &mActiveFeature );
 }
 
 
 void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
-{
-    ColorA bgCol    = ColorA( 1.0f, 1.0f, 1.0f, 0.1f );
-    
-    ColorA dataCol  = ColorA( 1.0f, rect.y1 / getWindowHeight(), rect.x1 / getWindowWidth(), 1.0f );
-    
+{   
     glPushMatrix();
     
     gl::drawString( feature->getName(), rect.getUpperLeft(), Color::white() );
     
     rect.y1 += 10;
     
-    gl::color( bgCol );
+    gl::color( ColorA( 1.0f, 1.0f, 1.0f, 0.1f ) );
     
     gl::drawSolidRect( rect );
     
     gl::translate( rect.getUpperLeft() );
     
-    glBegin( GL_QUADS );
     
     std::shared_ptr<float>  data  = feature->getData();
     int                     dataN = feature->getSize();
     float                   min   = feature->getMin();
     float                   max   = feature->getMax();
-    
-    float                   step  = rect.getWidth() / dataN;
     float                   h     = rect.getHeight();
-    float                   val, barY;
+    float                   val, barY, step;
+	PolyLine<Vec2f>         buffLine;
     
-    gl::color( dataCol );
+    gl::color( ColorA( 1.0f, 1.0f, 1.0f, 1.0f ) );
     
-    for( int i = 0; i < dataN; i++ )
+    // render Vector feature
+    if ( mData->getSize() > 1 )
     {
-        val     = ( data.get()[i] - min ) / ( max - min );
-        val     = math<float>::clamp( val, 0.0f, 1.0f );
-        barY    = h * val;
+        step = rect.getWidth() / dataN;
         
-        glVertex2f( i * step,           h );
-        glVertex2f( ( i + 1 ) * step,   h );
-        glVertex2f( ( i + 1 ) * step,   h-barY );
-        glVertex2f( i * step,           h-barY );
+        for( int i = 0; i < dataN; i++ )
+        {
+            val     = ( data.get()[i] - min ) / ( max - min );
+            val     = math<float>::clamp( val, 0.0f, 1.0f );
+            barY    = h * val;
+            buffLine.push_back( Vec2f( i * step, h-barY ) );
+        }
     }
     
-    glEnd();
+    // render Scalar feature + buffered data
+    else
+    {
+        // buffer the latest value
+        mDataBuffer.push_back( data.get()[0] );
+        
+        // draw latest value as bar
+        glBegin( GL_QUADS );
+        glVertex2f( 0,  h );        glVertex2f( 3,  h );
+        glVertex2f( 3,  h-val );    glVertex2f( 0,  h-val );
+        glEnd();
+        
+        step    = rect.getWidth() / ( (float)mDataBuffer.size() - 1 );
+        val     = ( data.get()[0] - min ) / ( max - min );
+        val     = h * math<float>::clamp( val, 0.0f, 1.0f );
+        
+        
+        
+        for( int i = 0; i < mDataBuffer.size(); i++ )
+        {
+            val     = ( mDataBuffer[ mDataBuffer.size() - i - 1 ] - min ) / ( max - min );
+            val     = math<float>::clamp( val, 0.0f, 1.0f );
+            barY    = h * val;
+            buffLine.push_back( Vec2f( i * step, h-barY ) );
+        }
+    }
+    
+    // render data
+    gl::draw( buffLine );
     
     gl::popMatrices();
+}
+
+
+void SoundAnalysisApp::selectFeature( string name )
+{
+    mData = mXtract->getFeatureData( name );
+
+    // reset buffer, only used for scalar features
+    for( auto k=0; k < mDataBuffer.size(); k++ )
+        mDataBuffer[k] = 0.0f;
 }
 
 
