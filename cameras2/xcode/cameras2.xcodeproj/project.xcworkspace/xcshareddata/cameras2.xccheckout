@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6E88BE22-8B97-4CD3-B4AE-295EAE360498</string>
+	<key>IDESourceControlProjectName</key>
+	<string>cameras2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8A59A2CE-F075-413C-92A2-5970302B9802</key>
+		<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>cameras2/xcode/cameras2.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8A59A2CE-F075-413C-92A2-5970302B9802</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8A59A2CE-F075-413C-92A2-5970302B9802</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8A59A2CE-F075-413C-92A2-5970302B9802</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciResonate</string>
+		</dict>
+	</array>
+</dict>
+</plist>
