@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A940D9F3-8E2F-4B58-BF15-89E4CF82AEFB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleShading</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CD69D7D8-0328-4960-B020-5676A2AFD76E</key>
+		<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GLSL/SimpleShading/xcode/SimpleShading.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CD69D7D8-0328-4960-B020-5676A2AFD76E</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CD69D7D8-0328-4960-B020-5676A2AFD76E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CD69D7D8-0328-4960-B020-5676A2AFD76E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciResonate</string>
+		</dict>
+	</array>
+</dict>
+</plist>
