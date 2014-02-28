@@ -1,15 +1,10 @@
 #version 120
 
-attribute vec4 a_vertex;
-attribute vec3 a_normal;
-attribute vec2 a_texCoord;
-
-varying vec3 v_g_normal;
-varying vec2 v_g_texCoord;
+uniform mat4 u_projectionMatrix;
+uniform mat4 u_modelViewMatrix;
 
 void main()
 {
-	v_g_normal = a_normal;		
-	v_g_texCoord = a_texCoord;
-	gl_Position = a_vertex;
+    mat4 modelViewProjection = u_projectionMatrix * u_modelViewMatrix;
+	gl_Position = modelViewProjection * gl_Vertex;;
 }    
