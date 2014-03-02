@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B6BCB740-73F6-448E-A377-A962612E69C6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>farnebackCubesFast</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>893F3314-27D1-4EC9-8791-E9DE16C425BD</key>
+		<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OpenCV/FarnebackCubesFast/xcode/farnebackCubesFast.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>893F3314-27D1-4EC9-8791-E9DE16C425BD</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>893F3314-27D1-4EC9-8791-E9DE16C425BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>893F3314-27D1-4EC9-8791-E9DE16C425BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciResonate</string>
+		</dict>
+	</array>
+</dict>
+</plist>
