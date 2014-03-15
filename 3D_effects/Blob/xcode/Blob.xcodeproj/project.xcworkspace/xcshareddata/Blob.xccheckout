@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F0E992A9-7812-4827-8C33-908CB1202F09</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Blob</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>61720788-E9BD-44F5-BBA6-C80B6999059D</key>
+		<string>ssh://qnode/NocteBlock.git</string>
+		<key>9557C612-122C-437F-96BF-D8C9BAE313BE</key>
+		<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>3d effects/Blob/xcode/Blob.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>61720788-E9BD-44F5-BBA6-C80B6999059D</key>
+		<string>../../../../../../blocks/NocteBlock</string>
+		<key>9557C612-122C-437F-96BF-D8C9BAE313BE</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9557C612-122C-437F-96BF-D8C9BAE313BE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9557C612-122C-437F-96BF-D8C9BAE313BE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciResonate</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>61720788-E9BD-44F5-BBA6-C80B6999059D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NocteBlock</string>
+		</dict>
+	</array>
+</dict>
+</plist>
