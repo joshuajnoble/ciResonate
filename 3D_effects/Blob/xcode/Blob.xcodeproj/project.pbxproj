@@ -12,7 +12,8 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		10888A8718D4B44D00A24210 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10888A8418D4B44D00A24210 /* Scene.cpp */; };
+		1003067518D4C92300AC99CB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1003067018D4C92300AC99CB /* .gitignore */; };
+		1003067618D4C92300AC99CB /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1003067318D4C92300AC99CB /* Scene.cpp */; };
 		531A170FC5174EB0A802B558 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B073270549EF4826BED75317 /* CinderApp.icns */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
@@ -26,10 +27,11 @@
 		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1003067018D4C92300AC99CB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1003067218D4C92300AC99CB /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
+		1003067318D4C92300AC99CB /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		1003067418D4C92300AC99CB /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		10888A8318D4B44D00A24210 /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
-		10888A8418D4B44D00A24210 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
-		10888A8518D4B44D00A24210 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		1320657A57D5400281DF24A6 /* BlobApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = BlobApp.cpp; path = ../src/BlobApp.cpp; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -64,7 +66,7 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				10888A8018D4B44D00A24210 /* NocteBlock */,
+				1003066F18D4C92300AC99CB /* NocteBlock */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -75,6 +77,26 @@
 				1320657A57D5400281DF24A6 /* BlobApp.cpp */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		1003066F18D4C92300AC99CB /* NocteBlock */ = {
+			isa = PBXGroup;
+			children = (
+				1003067018D4C92300AC99CB /* .gitignore */,
+				1003067118D4C92300AC99CB /* src */,
+			);
+			name = NocteBlock;
+			path = ../../blocks/NocteBlock;
+			sourceTree = "<group>";
+		};
+		1003067118D4C92300AC99CB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1003067218D4C92300AC99CB /* Fixture.h */,
+				1003067318D4C92300AC99CB /* Scene.cpp */,
+				1003067418D4C92300AC99CB /* Scene.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -99,25 +121,6 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		10888A8018D4B44D00A24210 /* NocteBlock */ = {
-			isa = PBXGroup;
-			children = (
-				10888A8218D4B44D00A24210 /* src */,
-			);
-			name = NocteBlock;
-			path = ../../../../blocks/NocteBlock;
-			sourceTree = "<group>";
-		};
-		10888A8218D4B44D00A24210 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				10888A8318D4B44D00A24210 /* Fixture.h */,
-				10888A8418D4B44D00A24210 /* Scene.cpp */,
-				10888A8518D4B44D00A24210 /* Scene.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1003067518D4C92300AC99CB /* .gitignore in Resources */,
 				531A170FC5174EB0A802B558 /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10888A8718D4B44D00A24210 /* Scene.cpp in Sources */,
+				1003067618D4C92300AC99CB /* Scene.cpp in Sources */,
 				DA60C28DD3B24B1896340674 /* BlobApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
