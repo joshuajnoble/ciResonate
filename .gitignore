@@ -71,3 +71,5 @@ bld/
 *.exe
 *.out
 *.app
+
+!3D_effects/assets/*
