@@ -31,8 +31,6 @@ public:
 	void render();
     
     bool containsPoint( ci::Vec2f pos2f );
-
-    void createSpline();
     
     void createPath( int n, float radius );
     
