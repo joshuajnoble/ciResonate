@@ -84,11 +84,13 @@ void SpawnApp::setup()
     
     mParams         = params::InterfaceGl::create( "Params", Vec2i( 200, 240 ) );   // Gui
     
+    mParams->addParam( "Fade IN",   &mFadeIn    , "min=0.001 max=1.0 step=0.001" );
+    mParams->addParam( "Fade OUT",  &mFadeOut   , "min=0.001 max=1.0 step=0.001" );
+	mParams->addSeparator();
+
     mParams->addParam( "Speed",     &mSpeed     , "min=0.001 max=10.0 step=0.001" );
     mParams->addParam( "Radius",    &mRadius    , "min=0.1 max=15.0 step=0.1" );
     mParams->addParam( "Points N",  &mPointsN   , "min=2 max=100 step=1" );
-    mParams->addParam( "Fade IN",   &mFadeIn    , "min=0.001 max=1.0 step=0.001" );
-    mParams->addParam( "Fade OUT",  &mFadeOut   , "min=0.001 max=1.0 step=0.001" );
     
     ci::CameraPersp initialCam;                                                     // Initialise camera
     initialCam.setPerspective( 45.0f, ci::app::getWindowAspectRatio(), 0.1, 3000 );
