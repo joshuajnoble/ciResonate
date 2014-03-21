@@ -42,7 +42,14 @@ private:
     
     vector<FixtureRef>      mFixtures;
     
-    gl::VboMeshRef          mFixtureMesh, mVenueMesh;   // 3d meshes
+    gl::VboMeshRef          mFixtureMesh;               // fixture mesh
+    gl::VboMeshRef          mPianoMesh;                 // fixture mesh
+    vector<gl::VboMeshRef>  mVenueMeshes;
+    gl::VboMeshRef          mSelectedVenueMesh;
+    size_t                  mVenueId;
+    
+    ColorA                  mVenueColor;
+    ColorA                  mPianoColor;
     
     ci::MayaCamUI           mMayaCam;                   // 3d camera
     
@@ -69,9 +76,21 @@ void SpotlightApp::setup()
     addAssetDirectory( "../../../../assets/" );
     
     loadFixtures( "fixtures_001.csv" );                                             // load CSV fixtures file
+
+    vector<string> venues;
+    venues.push_back("Sans_titre.obj");
+    venues.push_back("t_dianae.obj");
+    venues.push_back("amfiteatr.obj");
+    
+    for( int k=0; k < venues.size(); k++ )
+        mVenueMeshes.push_back( loadObj( venues[k] ) );                             // load venues
     
     mFixtureMesh    = loadObj( "sphere.obj" );                                      // load Fixture mesh
-    mVenueMesh      = loadObj( "venue.obj" );                                       // load Venue mesh
+    mPianoMesh      = loadObj( "piano.obj" );                                       // load Fixture mesh
+
+    mVenueId        = 0;                                                            // select the first one
+    mVenueColor     = ColorA( 0.5f, 0.5f, 0.5f, 0.8f );
+    mPianoColor     = ColorA( 0.1f, 0.1f, 0.1f, 0.8f );
     
     mFadeIn         = 0.5f;
     mFadeOut        = 0.1f;
@@ -82,6 +101,10 @@ void SpotlightApp::setup()
     mModule         = SpotlightModule::create( mPos, mRadius );                     // create module
     
     mParams         = params::InterfaceGl::create( "Params", Vec2i( 200, 240 ) );   // Gui
+    
+    mParams->addParam( "Venue", venues, (int*)&mVenueId );
+    mParams->addParam( "Venue color", &mVenueColor );
+    mParams->addParam( "Piano color", &mPianoColor );
     
     mParams->addParam( "Fade IN",   &mFadeIn    , "min=0.001 max=1.0 step=0.001" );
     mParams->addParam( "Fade OUT",  &mFadeOut   , "min=0.001 max=1.0 step=0.001" );
@@ -118,15 +141,27 @@ void SpotlightApp::draw()
     
     renderGrid();
     
-    if ( mVenueMesh )                                           // render venue
+    if ( mVenueMeshes[mVenueId] )                              // render venue
     {
-        gl::color( ColorA( 1.0f, 1.0f, 1.0f, 0.8f ) );
-        gl::draw( mVenueMesh );
+        gl::color( mVenueColor );
+        gl::draw( mVenueMeshes[mVenueId] );
         
         gl::enableWireframe();
-        gl::draw( mVenueMesh );
+        gl::draw( mVenueMeshes[mVenueId] );
         gl::disableWireframe();
     }
+    
+    if ( mPianoMesh )                                           // render piano
+    {
+        gl::color( mPianoColor );
+        gl::draw( mPianoMesh );
+        
+        gl::enableWireframe();
+        gl::draw( mPianoMesh );
+        gl::disableWireframe();
+    }
+    
+    gl::color( Color::white() );
     
     if ( mFixtureMesh )                                         // render fixtures
     {

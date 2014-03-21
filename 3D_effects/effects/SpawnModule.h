@@ -32,7 +32,7 @@ public:
     
     bool containsPoint( ci::Vec2f pos2f );
     
-    void createPath( int n, float radius );
+    void createPath( int n, int deg, float radius );
     
 protected:
     

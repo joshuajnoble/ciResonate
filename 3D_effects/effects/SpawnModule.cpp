@@ -19,7 +19,7 @@ using namespace std;
 
 SpawnModule::SpawnModule()
 {
-    createPath( 10, 2 );
+    createPath( 10, 3, 2 );
 }
 
 
@@ -82,7 +82,7 @@ void SpawnModule::render()
         
         pos = mPaths[k].getCurrentPos();
         
-        ci::gl::color( ColorA( 1.0f, 1.0f, 1.0f, 0.1f ) );
+        ci::gl::color( ColorA( 1.0f, 1.0f, 1.0f, 0.25f ) );
         ci::gl::enableWireframe();
         ci::gl::drawSphere( pos, mPaths[k].radius );                                // draw outer sphere based on the radius
         ci::gl::disableWireframe();
@@ -92,14 +92,17 @@ void SpawnModule::render()
 }
 
 
-void SpawnModule::createPath( int n, float radius )
+void SpawnModule::createPath( int n, int deg, float radius )
 {
+    if ( n < deg )
+        return;
+    
     vector<Vec3f> points;
     
     for( int k=0; k < n; k++ )
         points.push_back( Vec3f( randFloat( -8, 8 ), randFloat( 0, 8 ), randFloat( -8, 8 ) ) );
     
-    BSpline3f spline( points, 3, false, false );
+    BSpline3f spline( points, deg, false, false );
     SplinePath p = { spline, 0.0f, radius };
     
     mPaths.push_back( p );
