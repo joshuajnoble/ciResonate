@@ -8,14 +8,10 @@
 
 #pragma once
 
-#include "cinder/Rand.h"
 #include "cinder/gl/Fbo.h"
 #include "cinderfx/Fluid2D.h"
+#include "Fixture.h"
 
-
-// class forward declarations
-class Fixture;
-typedef std::shared_ptr<Fixture>    	FixtureRef;
 
 class FluidsModule;
 typedef std::shared_ptr<FluidsModule>	FluidsModuleRef;

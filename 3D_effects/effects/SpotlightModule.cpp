@@ -2,13 +2,10 @@
  *  SpotlightModule.cpp
  *
  *  Created by Andrea Cuius
- *  Nocte Copyright 2013 . All rights reserved.
- *
  *  www.nocte.co.uk
  *
  */
 
-#include "Fixture.h"
 #include "SpotlightModule.h"
 
 using namespace ci;

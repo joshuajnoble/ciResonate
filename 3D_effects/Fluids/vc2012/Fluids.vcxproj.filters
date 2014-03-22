@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -12,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Effects">
+      <UniqueIdentifier>{1ad1eb71-6f1d-4a6d-92dc-705a035d37dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{0722f429-7340-443e-9bd1-4b60a4ba57e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\CinderFx">
+      <UniqueIdentifier>{7a948a36-39ef-406e-acb8-261b18c6209b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\CinderFx\src">
+      <UniqueIdentifier>{c0c95622-61a0-44b1-9535-abca47d7e8af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\CinderFx\src\cinderfx">
+      <UniqueIdentifier>{adb59417-a938-48db-ac27-982b22f52e24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\FluidsApp.cpp">
@@ -23,10 +39,31 @@
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\effects\FluidsModule.cpp">
+      <Filter>Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\blocks\CinderFx\src\cinderfx\Fluid2D.cpp">
+      <Filter>Blocks\CinderFx\src\cinderfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\effects\Fixture.h">
+      <Filter>Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\effects\FluidsModule.h">
+      <Filter>Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\blocks\CinderFx\src\cinderfx\Clamp.h">
+      <Filter>Blocks\CinderFx\src\cinderfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\blocks\CinderFx\src\cinderfx\Fluid2D.h">
+      <Filter>Blocks\CinderFx\src\cinderfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\blocks\CinderFx\src\cinderfx\Grid.h">
+      <Filter>Blocks\CinderFx\src\cinderfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,10 +6,8 @@
  *
  */
 
-
-// class forward declarations
-class Fixture;
-typedef std::shared_ptr<Fixture>    	FixtureRef;
+#pragma once
+#include "Fixture.h"
 
 class SpawnModule;
 typedef std::shared_ptr<SpawnModule>	SpawnModuleRef;
