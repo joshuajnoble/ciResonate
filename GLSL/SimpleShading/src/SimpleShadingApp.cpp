@@ -4,6 +4,7 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/GlslProg.h"
 #include "cinder/TriMesh.h"
+#include "cinder/ImageIo.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -33,7 +34,7 @@ void SimpleShadingApp::setup()
     }
     catch ( std::exception error )
     {
-        cout << error.what() << endl;
+        console() << error.what() << endl;
     }
     
     gl::Texture::Format format;
@@ -60,6 +61,9 @@ void SimpleShadingApp::draw()
     gl::pushMatrices();
     //gl::translate(Vec2f(480,320));
     
+	if ( !mShader )
+		return;
+
     tex.enableAndBind();
     
     mShader.bind();
