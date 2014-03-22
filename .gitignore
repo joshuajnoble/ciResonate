@@ -71,12 +71,5 @@ bld/
 *.exe
 *.out
 *.app
-<<<<<<< HEAD
-=======
 
-# --------------- #
-# --- Q Stuff --- #
-# --------------- #
-
-SoundAnalysis/xcode/build
->>>>>>> 1a1802ccaafd12e5a1d2debbcb232223115d7836
+!3D_effects/assets/*
