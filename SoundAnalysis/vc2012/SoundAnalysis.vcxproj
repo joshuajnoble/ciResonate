@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -49,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\\include";"..\..\..\\boost"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\blocks\OSC\src;..\..\..\blocks\ciXtractReceiver\src;..\include;..\..\..\\include;..\..\..\\boost</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -75,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"..\..\..\\include";"..\..\..\\boost"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\blocks\OSC\src;..\..\..\blocks\ciXtractReceiver\src;..\include;"..\..\..\\include";"..\..\..\\boost"</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -106,9 +107,40 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\blocks\ciXtractReceiver\src\ciXtractReceiver.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\win32\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\win32\UdpSocket.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscBundle.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscListener.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscMessage.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscSender.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscTypes.cpp" />
     <ClCompile Include="..\src\SoundAnalysisApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\blocks\ciXtractReceiver\src\ciXtractReceiver.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscArg.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscBundle.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscListener.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscMessage.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscSender.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscException.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscTypes.h" />
     <ClInclude Include="..\include\Resources.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

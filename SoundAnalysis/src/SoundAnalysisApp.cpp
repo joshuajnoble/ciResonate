@@ -84,7 +84,7 @@ public:
 public:
     
     ciXtractReceiverRef             mXtract;
-    FeatureDataRef                  mData;
+    FeatureDataRef                  mSelectedFeature;
     float                           mDataGain;
     float                           mDataOffset;
     float                           mDataDamping;
@@ -137,14 +137,14 @@ void SoundAnalysisApp::mouseDown( MouseEvent event )
 void SoundAnalysisApp::update()
 {
     // change feature
-    if ( !mData || mData->getName() != mAvailableFeatures[mActiveFeature] )
+    if ( !mSelectedFeature || mSelectedFeature->getName() != mAvailableFeatures[mActiveFeature] )
         selectFeature( mAvailableFeatures[mActiveFeature] );
     
     // set feature properties
-    mData->setLog( mDataIsLog );
-    mData->setGain( mDataGain );
-    mData->setOffset( mDataOffset );
-    mData->setDamping( mDataDamping );
+    mSelectedFeature->setLog( mDataIsLog );
+    mSelectedFeature->setGain( mDataGain );
+    mSelectedFeature->setOffset( mDataOffset );
+    mSelectedFeature->setDamping( mDataDamping );
  
     // process audio analysis
     mXtract->update();
@@ -157,7 +157,7 @@ void SoundAnalysisApp::draw()
     
     gl::enableAlphaBlending();
     
-    drawData( mData, Rectf( 16, 250, 236, 320 ) );
+    drawData( mSelectedFeature, Rectf( 16, 250, 236, 320 ) );
     
     mParams->draw();
 }
@@ -193,7 +193,6 @@ void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
     
     
     std::shared_ptr<float>  data  = feature->getData();
-    int                     dataN = feature->getSize();
     float                   min   = feature->getMin();
     float                   max   = feature->getMax();
     float                   h     = rect.getHeight();
@@ -203,11 +202,11 @@ void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
     gl::color( ColorA( 1.0f, 1.0f, 1.0f, 1.0f ) );
     
     // render Vector feature
-    if ( mData->getSize() > 1 )
+    if ( feature->getSize() > 1 )
     {
-        step = rect.getWidth() / dataN;
+        step = rect.getWidth() / feature->getSize();
         
-        for( int i = 0; i < dataN; i++ )
+        for( int i = 0; i < feature->getSize(); i++ )
         {
             val     = ( data.get()[i] - min ) / ( max - min );
             val     = math<float>::clamp( val, 0.0f, 1.0f );
@@ -217,7 +216,7 @@ void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
     }
     
     // render Scalar feature + buffered data
-    else
+    else if ( feature->getSize() == 1 )
     {
         // buffer the latest value
         mDataBuffer.push_back( data.get()[0] );
@@ -244,7 +243,8 @@ void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
     }
     
     // render data
-    gl::draw( buffLine );
+	if ( buffLine.size() > 0 )
+	    gl::draw( buffLine );
     
     gl::popMatrices();
 }
@@ -252,7 +252,7 @@ void SoundAnalysisApp::drawData( FeatureDataRef feature, Rectf rect )
 
 void SoundAnalysisApp::selectFeature( string name )
 {
-    mData = mXtract->getFeatureData( name );
+	mSelectedFeature = mXtract->getFeatureData( name );
 
     // reset buffer, only used for scalar features
     for( auto k=0; k < mDataBuffer.size(); k++ )

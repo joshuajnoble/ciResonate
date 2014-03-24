@@ -2,16 +2,12 @@
  *  FluidsModule.cpp
  *
  *  Created by Andrea Cuius
- *  Nocte Copyright 2013 . All rights reserved.
- *
  *  www.nocte.co.uk
  *
  */
 
-
+#include "cinder/Rand.h"
 #include "FluidsModule.h"
-#include "Fixture.h"
-
 
 using namespace ci;
 using namespace ci::app;
@@ -150,6 +146,7 @@ void FluidsModule::createRandomSources( int n )
                         randInt( mFluid2D.resY() * 0.2f, mFluid2D.resY() * 0.8f ) );
         dir     = Vec2f( cos(angle), sin(angle) ).normalized();
         
-        mSources.push_back( { pos, dir } );
+		FluidSource source = { pos, dir };
+        mSources.push_back( source );
     }
 }

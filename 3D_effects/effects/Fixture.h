@@ -6,6 +6,10 @@
  *
  */
 
+#pragma once
+
+#include "cinder/app/AppNative.h"
+
 class Fixture;
 typedef std::shared_ptr<Fixture> FixtureRef;
 

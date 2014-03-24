@@ -2,14 +2,11 @@
  *  SpawnModule.cpp
  *
  *  Created by Andrea Cuius
- *  Nocte Copyright 2013 . All rights reserved.
- *
  *  www.nocte.co.uk
  *
  */
 
 #include "SpawnModule.h"
-#include "Fixture.h"
 #include "cinder/Rand.h"
 
 using namespace ci;

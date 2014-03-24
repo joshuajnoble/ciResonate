@@ -6,10 +6,7 @@
  *
  */
 
-
-// class forward declarations
-class Fixture;
-typedef std::shared_ptr<Fixture>    FixtureRef;
+#include "Fixture.h"
 
 class BlobModule;
 typedef std::shared_ptr<BlobModule>      BlobModuleRef;
