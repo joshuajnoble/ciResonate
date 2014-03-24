@@ -19,7 +19,7 @@ public:
 	void draw();
     
     gl::GlslProg mShader;
-    gl::Texture tex;
+    gl::Texture mTex;
     float mMouseX;
     
 };
@@ -39,7 +39,7 @@ void SimpleShadingApp::setup()
     
     gl::Texture::Format format;
     format.setTarget(GL_TEXTURE_RECTANGLE_ARB);
-    tex = gl::Texture(loadImage(loadAsset("test.jpg")), format);
+    mTex = gl::Texture(loadImage(loadAsset("test.jpg")), format);
     
 }
 
@@ -59,19 +59,18 @@ void SimpleShadingApp::draw()
     // clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     gl::pushMatrices();
-    //gl::translate(Vec2f(480,320));
-    
+
 	if ( !mShader )
 		return;
 
-    tex.enableAndBind();
+    mTex.enableAndBind();
     
     mShader.bind();
     mShader.uniform("mouseX", mMouseX);
     mShader.uniform("tex0", 0);
     
     gl::drawSolidRect( getWindowBounds() );
-    tex.unbind();
+    mTex.unbind();
     mShader.unbind();
     gl::popMatrices();
 }
