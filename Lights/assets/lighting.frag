@@ -2,13 +2,13 @@
 
 #define MAX_LIGHTS 8
 
-struct material
-{
-    vec4 ambient;
-    vec4 diffuse;
-    vec4 specular;
-    float shininess;
-};
+//struct material
+//{
+//    vec4 ambient;
+//    vec4 diffuse;
+//    vec4 specular;
+//    float shininess;
+//};
 
 // note: these *should* be passed in via uniform buffer objects
 // but it isn't supported in GLES2.0
@@ -36,9 +36,6 @@ uniform vec4 mat_diffuse;
 uniform vec4 mat_specular;
 uniform float mat_shininess;
 
-// this should be generated?
-uniform int numberOfLights;
-
 varying vec4 outColor; // this is the ultimate color for this vertex
 varying vec2 outtexcoord; // pass the texCoord if needed
 varying vec3 transformedNormal;
@@ -49,12 +46,6 @@ varying vec3 transformedNormal;
 varying vec4 eyePosition;
 varying vec3 eyePosition3;
 varying vec3 eye;
-
-// these are passed in from OF programmable renderer
-uniform mat4 modelViewMatrix;
-uniform mat4 projectionMatrix;
-uniform mat4 textureMatrix;
-uniform mat4 modelViewProjectionMatrix;
 
 uniform light lights[MAX_LIGHTS];
 
@@ -162,7 +153,6 @@ void main (void)
     ////////////////////////////////////////////////////////////
     // now get the color ready
     gl_FragColor = clamp( localColor, 0.0, 1.0 );
-    //gl_FragColor = vec4( 1, 0, 0, 1 );
     
     
 }
