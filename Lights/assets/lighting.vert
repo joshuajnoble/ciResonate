@@ -8,8 +8,6 @@ varying vec3 transformedNormal;
 ////////////////////////////////////////////////////////////
 // Eye-coordinate position of vertex
 varying vec4 eyePosition;
-
-// vec4 localColor;
 varying vec3 eyePosition3;
 varying vec3 eye;
 
@@ -27,20 +25,18 @@ varying vec3 eye;
 void main (void)
 {
     float alphaFade = 1.0;
-////////////////////////////////////////////////////////////
-// Eye-coordinate position of vertex
-    vec4 eyePosition = gl_ModelViewMatrix * gl_Vertex;
-	//mat4 normalMatrix = transpose(gl_ModelViewMatrixInverse);
-//    vec3 tempNormal = (normalMatrix * gl_Normal).xyz;
+    ////////////////////////////////////////////////////////////
+    // Eye-coordinate position of vertex
+    vec4 eyePosition = (gl_ModelViewMatrix * gl_Vertex) * -1;
     transformedNormal = normalize(gl_NormalMatrix * gl_Normal);
 
-////////////////////////////////////////////////////////////
-// let's do some eye positioning
+    ////////////////////////////////////////////////////////////
+    // let's do some eye positioning
     eyePosition3 = (eyePosition.xyz) / eyePosition.w;
     eye = vec3 (0.0, 0.0, 1.0);
 
     outtexcoord = (gl_TextureMatrix[0] * vec4(gl_MultiTexCoord0.x, gl_MultiTexCoord0.y,0,1)).xy;
-////////////////////////////////////////////////////////////
-// Do fixed functionality vertex transform
+    ////////////////////////////////////////////////////////////
+    // Do fixed functionality vertex transform
     gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;
 }

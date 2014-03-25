@@ -24,8 +24,8 @@ struct light
     float constantAttenuation, linearAttenuation, quadraticAttenuation;
     // only for spot
     //float spotCutoff, spotExponent;
-    //vec3 spotDirection;
-    vec3 halfVector; // only for dir
+    vec3 spotDirection;
+    //vec3 halfVector; // only for dir
 };
 
 uniform sampler2D tex0;
@@ -98,12 +98,32 @@ mat3x4 directionalLight(int i, vec3 normal)
     float pf;             // power factor
     
     nDotVP = max(0.0, dot(normal, normalize(vec3 (lights[i].position))));
-    nDotHV = max(0.0, dot(normal, vec3 (lights[i].halfVector)));
+    //nDotHV = max(0.0, dot(normal, vec3 (lights[i].halfVector)));
+    
+    vec3 adjustedDir = vec3(lights[i].spotDirection.x, -lights[i].spotDirection.y, lights[i].spotDirection.z);
+    vec3 halfVector = normalize(adjustedDir + eyePosition3);
+    
+    nDotHV = max(0.0, dot(normal, halfVector));
     
     pf = mix(0.0, pow(nDotHV, mat_shininess), step(0.0000001, nDotVP));
     
-    mat3x4 lightResult = mat3x4(lights[i].ambient, (lights[i].diffuse * nDotVP), lights[i].specular * pf);
+    // shouldn't have any ambient, right?
+    vec4 black = vec4(0, 0, 0, 1.0);
+    mat3x4 lightResult = mat3x4(black, (lights[i].diffuse * nDotVP), lights[i].specular * pf);
     return lightResult;
+    
+//    float intensity = max(dot(normal,lights[i].halfVector), 0.0);
+//    
+//    // if the vertex is lit compute the specular color
+//    if (intensity > 0.0) {
+//        // compute the half vector
+//        vec3 h = normalize(l_dir + eye);
+//        // compute the specular term into spec
+//        float intSpec = max(dot(h,n), 0.0);
+//        spec = specular * pow(intSpec,shininess);
+//    }
+//    colorOut = max(intensity *  diffuse + spec, ambient);
+    
 }
 
 //////////////////////////////////////////////////////

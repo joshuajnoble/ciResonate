@@ -95,7 +95,7 @@ void LightsApp::draw()
     gl::pushMatrices();
     
     mShader.uniform("lights[0].type", mLight1Type);
-    mShader.uniform("lights[0].halfNormal", mLight1Direction);
+    mShader.uniform("lights[0].spotDirection", mLight1Direction);
     Vec4f lp1(mLight1Position.x, mLight1Position.y, mLight1Position.z, 1.0);
     mShader.uniform("lights[0].position", lp1);
 
@@ -118,7 +118,7 @@ void LightsApp::draw()
     //// 2 light
     
     mShader.uniform("lights[1].type", mLight2Type);
-    mShader.uniform("lights[1].halfNormal", mLight2Direction);
+    mShader.uniform("lights[1].spotDirection", mLight2Direction);
     
     
     Vec4f lp2(mLight2Position.x, mLight2Position.y, mLight2Position.z, 1.0);
@@ -145,7 +145,7 @@ void LightsApp::draw()
     Vec4f matDiffuse(1.0f, 1.0f, 1.f, 1.0f);
     mShader.uniform("mat_specular", matDiffuse);
     //ofVec4f matShininess(.5f, 0.5f, 0.5f, .5f);
-    float matShininess = 0.001;
+    float matShininess = 0.5;
     mShader.uniform("mat_shininess", matShininess);
     
     gl::drawSphere( Vec3f(300, 200, 0), 100, 64);
