@@ -12,7 +12,7 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		106D39CF18E3352C00FEDF86 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 106D39CE18E3352C00FEDF86 /* assets */; };
+		106D39D118E3405100FEDF86 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 106D39D018E3405100FEDF86 /* assets */; };
 		20E24EB3D4B645EAAB97C4BB /* OscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A52CF7239E3444B59CD4EA74 /* OscBundle.cpp */; };
 		29CE3D863ADE4F4F8FA383CE /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = D8199EEF55B349F4A3AB8234 /* CinderApp.icns */; };
 		32345AAA09FA402683E162A6 /* OscListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9707D7085F6B489BB917C44E /* OscListener.cpp */; };
@@ -40,7 +40,7 @@
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		0B53765F609C434CA0123262 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MessageMappingOscPacketListener.h; path = ../../../../blocks/OSC/src/osc/MessageMappingOscPacketListener.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		106D39CE18E3352C00FEDF86 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
+		106D39D018E3405100FEDF86 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
 		12CCFE41C582452A9E14BF81 /* OscTypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscTypes.cpp; path = ../../../../blocks/OSC/src/osc/OscTypes.cpp; sourceTree = "<group>"; };
 		14A932A7AEFF4170AC4D3A8F /* TimerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerListener.h; path = ../../../../blocks/OSC/src/ip/TimerListener.h; sourceTree = "<group>"; };
 		1B6298DFA6544F0B9FED0F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		29B97314FDCFA39411CA2CEA /* AudioObj */ = {
 			isa = PBXGroup;
 			children = (
-				106D39CE18E3352C00FEDF86 /* assets */,
+				106D39D018E3405100FEDF86 /* assets */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
 				080E96DDFE201D6D7F000001 /* Source */,
@@ -330,7 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CE3D863ADE4F4F8FA383CE /* CinderApp.icns in Resources */,
-				106D39CF18E3352C00FEDF86 /* assets in Resources */,
+				106D39D118E3405100FEDF86 /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

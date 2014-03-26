@@ -59,6 +59,7 @@ public:
     ColorA                  mObjColor;
     gl::GlslProgRef         mShader;    
     MayaCamUI               mMayaCam;
+    bool                    mRenderWireframe;
     
 };
 
@@ -80,13 +81,15 @@ void AudioObjApp::setup()
     mDataSpreadOffset   = 0.0f;
     
     mObjColor           = ColorA( 0.0f, 1.0f, 1.0f, 1.0f );
+    mRenderWireframe    = true;
     
     loadObject( getAssetPath( "cube.obj" ) );
     
     initGui();
     
     mXtract = ciXtractReceiver::create();
-	mData   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
+//	mData   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
+	mData   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
     mData->setLog( true );
     
     loadShader();
@@ -175,7 +178,9 @@ void AudioObjApp::draw()
 {
 	gl::clear( Color( 0, 0, 0 ) );
     gl::enableAlphaBlending();
-
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    
     gl::pushMatrices();
 
 	gl::setMatrices( mMayaCam.getCamera() );
@@ -194,13 +199,16 @@ void AudioObjApp::draw()
 		mShader->uniform( "tintColor",      mObjColor );
 	}
     
-    gl::enableWireframe();
+    if ( mRenderWireframe )
+        gl::enableWireframe();
     
 	gl::color( Color(1.0f, 0.0f, 0.0f ) );
+    
 	if ( mVbo )
 	    gl::draw( mVbo );
 
-	gl::disableWireframe();
+    if ( mRenderWireframe )
+        gl::disableWireframe();
     
 	mShader->unbind();
 	mDataTex.unbind();
@@ -209,6 +217,9 @@ void AudioObjApp::draw()
 //	gl::drawCoordinateFrame();
   
 	gl::popMatrices();
+    
+    gl::disableDepthRead();
+    gl::disableDepthWrite();
     
 	gl::setMatricesWindow( getWindowSize() );
 
@@ -222,6 +233,8 @@ void AudioObjApp::draw()
 
 void AudioObjApp::loadShader()
 {
+    console() << getAssetPath( "shaders/passThru.vert" ) << endl;
+    
     try {
 		mShader = gl::GlslProg::create( loadAsset( "shaders/passThru.vert" ), loadAsset( "shaders/sound.frag" ) );
         console() << "Shader loaded " << getElapsedSeconds() << endl;
@@ -255,6 +268,7 @@ void AudioObjApp::initGui()
 {
     mParams = params::InterfaceGl::create( "Settings", Vec2f( 200, 250 ) );
     mParams->addParam( "Obj color",     &mObjColor );
+    mParams->addParam( "Wireframe",     &mRenderWireframe );
     mParams->addParam( "Data Gain",     &mDataGain,         "min=0.0 max=25.0 step=0.1" );
     mParams->addParam( "Data Offset",   &mDataOffset,       "min=-1.0 max=1.0 step=0.01" );
     mParams->addParam( "Data Damping",  &mDataDamping,      "min=0.0 max=0.99 step=0.01" );
