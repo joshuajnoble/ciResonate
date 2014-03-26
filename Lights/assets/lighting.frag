@@ -2,13 +2,13 @@
 
 #define MAX_LIGHTS 8
 
-struct material
-{
-    vec4 ambient;
-    vec4 diffuse;
-    vec4 specular;
-    float shininess;
-};
+//struct material
+//{
+//    vec4 ambient;
+//    vec4 diffuse;
+//    vec4 specular;
+//    float shininess;
+//};
 
 // note: these *should* be passed in via uniform buffer objects
 // but it isn't supported in GLES2.0
@@ -24,8 +24,8 @@ struct light
     float constantAttenuation, linearAttenuation, quadraticAttenuation;
     // only for spot
     //float spotCutoff, spotExponent;
-    //vec3 spotDirection;
-    vec3 halfVector; // only for dir
+    vec3 spotDirection;
+    //vec3 halfVector; // only for dir
 };
 
 uniform sampler2D tex0;
@@ -35,9 +35,6 @@ uniform vec4 mat_ambient;
 uniform vec4 mat_diffuse;
 uniform vec4 mat_specular;
 uniform float mat_shininess;
-
-// this should be generated?
-uniform int numberOfLights;
 
 varying vec4 outColor; // this is the ultimate color for this vertex
 varying vec2 outtexcoord; // pass the texCoord if needed
@@ -49,12 +46,6 @@ varying vec3 transformedNormal;
 varying vec4 eyePosition;
 varying vec3 eyePosition3;
 varying vec3 eye;
-
-// these are passed in from OF programmable renderer
-uniform mat4 modelViewMatrix;
-uniform mat4 projectionMatrix;
-uniform mat4 textureMatrix;
-uniform mat4 modelViewProjectionMatrix;
 
 uniform light lights[MAX_LIGHTS];
 
@@ -107,12 +98,32 @@ mat3x4 directionalLight(int i, vec3 normal)
     float pf;             // power factor
     
     nDotVP = max(0.0, dot(normal, normalize(vec3 (lights[i].position))));
-    nDotHV = max(0.0, dot(normal, vec3 (lights[i].halfVector)));
+    //nDotHV = max(0.0, dot(normal, vec3 (lights[i].halfVector)));
+    
+    vec3 adjustedDir = vec3(lights[i].spotDirection.x, -lights[i].spotDirection.y, lights[i].spotDirection.z);
+    vec3 halfVector = normalize(adjustedDir + eyePosition3);
+    
+    nDotHV = max(0.0, dot(normal, halfVector));
     
     pf = mix(0.0, pow(nDotHV, mat_shininess), step(0.0000001, nDotVP));
     
-    mat3x4 lightResult = mat3x4(lights[i].ambient, (lights[i].diffuse * nDotVP), lights[i].specular * pf);
+    // shouldn't have any ambient, right?
+    vec4 black = vec4(0, 0, 0, 1.0);
+    mat3x4 lightResult = mat3x4(black, (lights[i].diffuse * nDotVP), lights[i].specular * pf);
     return lightResult;
+    
+//    float intensity = max(dot(normal,lights[i].halfVector), 0.0);
+//    
+//    // if the vertex is lit compute the specular color
+//    if (intensity > 0.0) {
+//        // compute the half vector
+//        vec3 h = normalize(l_dir + eye);
+//        // compute the specular term into spec
+//        float intSpec = max(dot(h,n), 0.0);
+//        spec = specular * pow(intSpec,shininess);
+//    }
+//    colorOut = max(intensity *  diffuse + spec, ambient);
+    
 }
 
 //////////////////////////////////////////////////////
@@ -162,7 +173,6 @@ void main (void)
     ////////////////////////////////////////////////////////////
     // now get the color ready
     gl_FragColor = clamp( localColor, 0.0, 1.0 );
-    //gl_FragColor = vec4( 1, 0, 0, 1 );
     
     
 }

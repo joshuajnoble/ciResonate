@@ -24,7 +24,7 @@ void streamerApp::setup()
     mTex = gl::Texture( loadImage( loadAsset("mona_lisa.jpg")));
 }
 
-void streamerApp::mous eDown( MouseEvent event )
+void streamerApp::mouseDown( MouseEvent event )
 {
 }
 

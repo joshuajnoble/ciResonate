@@ -12,12 +12,13 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		103DED5A18DB133200377B8B /* SpotlightModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 103DED5818DB133200377B8B /* SpotlightModule.cpp */; };
+		3CF06C7CDC094CA4BC69F5BB /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3DBA5D5ED7774A8997A2FD28 /* CinderApp.icns */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		61DB3465BE944ACE81FEF97F /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = F040CD12565B4F388247E98C /* CinderApp.icns */; };
+		702311E9537044B4B8D496DA /* LightsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A6D485B70047519998780D /* LightsApp.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C538051CC20E493C863F4F21 /* SpotlightApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3714244E80D49B68A2F8E94 /* SpotlightApp.cpp */; };
+		EDB06F7318D6B2E000DCAABF /* lighting.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F7118D6B2E000DCAABF /* lighting.frag */; };
+		EDB06F7418D6B2E000DCAABF /* lighting.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDB06F7218D6B2E000DCAABF /* lighting.vert */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,20 +27,19 @@
 		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		103DED5718DB133200377B8B /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fixture.h; path = ../../effects/Fixture.h; sourceTree = "<group>"; };
-		103DED5818DB133200377B8B /* SpotlightModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpotlightModule.cpp; path = ../../effects/SpotlightModule.cpp; sourceTree = "<group>"; };
-		103DED5918DB133200377B8B /* SpotlightModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotlightModule.h; path = ../../effects/SpotlightModule.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		3DBA5D5ED7774A8997A2FD28 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		60019C5415504A188113D033 /* Spotlight_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Spotlight_Prefix.pch; sourceTree = "<group>"; };
-		6EE0FF7A995649F2879A51EB /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Spotlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BBDCBE2E77F46AFBE47F74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3714244E80D49B68A2F8E94 /* SpotlightApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = SpotlightApp.cpp; path = ../src/SpotlightApp.cpp; sourceTree = "<group>"; };
-		F040CD12565B4F388247E98C /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		72A6D485B70047519998780D /* LightsApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = LightsApp.cpp; path = ../src/LightsApp.cpp; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lights.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E3040DEDE4A46AA9CEB0F49 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		C70158CFE1F44F4B9CA35DA0 /* Lights_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Lights_Prefix.pch; sourceTree = "<group>"; };
+		E2119C0788034DC6BFDA6B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB06F7118D6B2E000DCAABF /* lighting.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lighting.frag; path = ../assets/lighting.frag; sourceTree = "<group>"; };
+		EDB06F7218D6B2E000DCAABF /* lighting.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = lighting.vert; path = ../assets/lighting.vert; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,19 +71,9 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B3714244E80D49B68A2F8E94 /* SpotlightApp.cpp */,
+				72A6D485B70047519998780D /* LightsApp.cpp */,
 			);
 			name = Source;
-			sourceTree = "<group>";
-		};
-		103DED5618DB130600377B8B /* Effects */ = {
-			isa = PBXGroup;
-			children = (
-				103DED5718DB133200377B8B /* Fixture.h */,
-				103DED5818DB133200377B8B /* SpotlightModule.cpp */,
-				103DED5918DB133200377B8B /* SpotlightModule.h */,
-			);
-			name = Effects;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -113,15 +103,15 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Spotlight.app */,
+				8D1107320486CEB800E47090 /* Lights.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* Spotlight */ = {
+		29B97314FDCFA39411CA2CEA /* Lights */ = {
 			isa = PBXGroup;
 			children = (
-				103DED5618DB130600377B8B /* Effects */,
+				EDB06F7018D6B2CB00DCAABF /* Assets */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
 				080E96DDFE201D6D7F000001 /* Source */,
@@ -129,14 +119,14 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = Spotlight;
+			name = Lights;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				6EE0FF7A995649F2879A51EB /* Resources.h */,
-				60019C5415504A188113D033 /* Spotlight_Prefix.pch */,
+				8E3040DEDE4A46AA9CEB0F49 /* Resources.h */,
+				C70158CFE1F44F4B9CA35DA0 /* Lights_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -144,8 +134,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F040CD12565B4F388247E98C /* CinderApp.icns */,
-				9BBDCBE2E77F46AFBE47F74A /* Info.plist */,
+				3DBA5D5ED7774A8997A2FD28 /* CinderApp.icns */,
+				E2119C0788034DC6BFDA6B36 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -159,12 +149,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EDB06F7018D6B2CB00DCAABF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EDB06F7118D6B2E000DCAABF /* lighting.frag */,
+				EDB06F7218D6B2E000DCAABF /* lighting.vert */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Spotlight */ = {
+		8D1107260486CEB800E47090 /* Lights */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Spotlight" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Lights" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -174,10 +173,10 @@
 			);
 			dependencies = (
 			);
-			name = Spotlight;
+			name = Lights;
 			productInstallPath = "$(HOME)/Applications";
-			productName = Spotlight;
-			productReference = 8D1107320486CEB800E47090 /* Spotlight.app */;
+			productName = Lights;
+			productReference = 8D1107320486CEB800E47090 /* Lights.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +186,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Spotlight" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Lights" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -197,11 +196,11 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* Spotlight */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Lights */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* Spotlight */,
+				8D1107260486CEB800E47090 /* Lights */,
 			);
 		};
 /* End PBXProject section */
@@ -211,7 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61DB3465BE944ACE81FEF97F /* CinderApp.icns in Resources */,
+				3CF06C7CDC094CA4BC69F5BB /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,8 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				103DED5A18DB133200377B8B /* SpotlightModule.cpp in Sources */,
-				C538051CC20E493C863F4F21 /* SpotlightApp.cpp in Sources */,
+				702311E9537044B4B8D496DA /* LightsApp.cpp in Sources */,
+				EDB06F7418D6B2E000DCAABF /* lighting.vert in Sources */,
+				EDB06F7318D6B2E000DCAABF /* lighting.frag in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +240,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Spotlight_Prefix.pch;
+				GCC_PREFIX_HEADER = Lights_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -249,7 +249,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
-				PRODUCT_NAME = Spotlight;
+				PRODUCT_NAME = Lights;
 				SDKROOT = macosx10.8;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -267,12 +267,12 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Spotlight_Prefix.pch;
+				GCC_PREFIX_HEADER = Lights_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
-				PRODUCT_NAME = Spotlight;
+				PRODUCT_NAME = Lights;
 				SDKROOT = macosx10.8;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
@@ -285,7 +285,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../..;
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -302,7 +302,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../..;
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Spotlight" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Lights" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Spotlight" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Lights" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
