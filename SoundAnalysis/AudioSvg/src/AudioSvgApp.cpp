@@ -193,11 +193,11 @@ void AudioSvgApp::draw()
 		mShader->uniform( "spread",         mDataSpread );
 		mShader->uniform( "spreadOffset",   mDataSpreadOffset );
 		mShader->uniform( "time",           (float)getElapsedSeconds() );
-	
+		mShader->uniform( "tintColor",		mSvgColor );
+
 		gl::scale( mScale * Vec2f::one() );
 		gl::translate( mOffset );
     
-		gl::color( mSvgColor );
 		gl::draw( mVbo );
 
 		mShader->unbind();

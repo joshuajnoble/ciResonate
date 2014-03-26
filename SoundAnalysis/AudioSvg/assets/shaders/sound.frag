@@ -9,6 +9,7 @@ uniform float			soundDataSize;
 uniform float			spread;
 uniform float			spreadOffset;
 uniform float			time;
+uniform	vec4			tintColor;
 
 void main()
 {
@@ -20,6 +21,6 @@ void main()
 	int binN		= int( ( spreadOffset + gl_TexCoord[0].x * spread ) * soundDataSize );
 	texPos.x		= float( mod( binN, int(texWidth) ) + 0.5 ) / texWidth;
 	texPos.y		= float( binN / int(texWidth) + 0.5 ) / texHeight;
-	gl_FragColor	= gl_Color * texture2D( dataTex, texPos );
+	gl_FragColor	= tintColor * texture2D( dataTex, texPos );
 	//gl_FragColor = vec4(  gl_TexCoord[0].x, 0.0, 0.0, 1.0 );
 }
