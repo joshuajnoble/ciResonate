@@ -27,6 +27,7 @@ public:
     void keyDown( KeyEvent event );
     void mouseDown( MouseEvent event );
     void mouseDrag( MouseEvent event );
+    void resize();
     void fileDrop( FileDropEvent event );
     
 	void update();
@@ -55,7 +56,7 @@ public:
     float                   mDataDamping;
     float                   mDataSpread;
     float                   mDataSpreadOffset;
-
+    ColorA                  mObjColor;
     gl::GlslProgRef         mShader;    
     MayaCamUI               mMayaCam;
     
@@ -78,12 +79,14 @@ void AudioObjApp::setup()
     mDataSpread         = 1.0f;
     mDataSpreadOffset   = 0.0f;
     
+    mObjColor           = ColorA( 0.0f, 1.0f, 1.0f, 1.0f );
+    
     loadObject( getAssetPath( "cube.obj" ) );
     
     initGui();
     
     mXtract = ciXtractReceiver::create();
-	mData   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
+	mData   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
     mData->setLog( true );
     
     loadShader();
@@ -119,6 +122,15 @@ void AudioObjApp::mouseDrag( MouseEvent event )
 {
     if( event.isAltDown() )
 		mMayaCam.mouseDrag( event.getPos(), event.isLeftDown(), event.isMiddleDown(), event.isRightDown() );
+}
+
+
+void AudioObjApp::resize()
+{
+	CameraPersp cam;
+    cam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1, 10000 );
+	mMayaCam.setCurrentCam( cam );
+
 }
 
 
@@ -178,7 +190,8 @@ void AudioObjApp::draw()
 		mShader->uniform( "soundDataSize",  (float)mData->getSize() );
 		mShader->uniform( "spread",         mDataSpread );
 		mShader->uniform( "spreadOffset",   mDataSpreadOffset );
-		mShader->uniform( "time",           (float)getElapsedSeconds() );
+        mShader->uniform( "time",           (float)getElapsedSeconds() );
+		mShader->uniform( "tintColor",      mObjColor );
 	}
     
     gl::enableWireframe();
@@ -193,7 +206,7 @@ void AudioObjApp::draw()
 	mDataTex.unbind();
 
 	gl::color( Color::white() );
-	gl::drawCoordinateFrame();
+//	gl::drawCoordinateFrame();
   
 	gl::popMatrices();
     
@@ -241,6 +254,7 @@ void AudioObjApp::loadObject( fs::path filepath )
 void AudioObjApp::initGui()
 {
     mParams = params::InterfaceGl::create( "Settings", Vec2f( 200, 250 ) );
+    mParams->addParam( "Obj color",     &mObjColor );
     mParams->addParam( "Data Gain",     &mDataGain,         "min=0.0 max=25.0 step=0.1" );
     mParams->addParam( "Data Offset",   &mDataOffset,       "min=-1.0 max=1.0 step=0.01" );
     mParams->addParam( "Data Damping",  &mDataDamping,      "min=0.0 max=0.99 step=0.01" );
