@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		34D3ED784A8B40F3A80C8388 /* ssaoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2157B7CEF10E452FAC0CD760 /* ssaoApp.cpp */; };
+		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		8C42E9E4D0D0446989C5D9FA /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B169D4AF51174F9FB64CB92C /* CinderApp.icns */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		EDA5776518E4938000703C5D /* AlphaToRGB_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5773E18E4938000703C5D /* AlphaToRGB_glsl.frag */; };
+		EDA5776618E4938000703C5D /* AlphaToRGB_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5773F18E4938000703C5D /* AlphaToRGB_glsl.vert */; };
+		EDA5776718E4938000703C5D /* BasicBlender_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774018E4938000703C5D /* BasicBlender_glsl.frag */; };
+		EDA5776818E4938000703C5D /* BasicBlender_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774118E4938000703C5D /* BasicBlender_glsl.vert */; };
+		EDA5776918E4938000703C5D /* Blur_h_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774218E4938000703C5D /* Blur_h_glsl.frag */; };
+		EDA5776A18E4938000703C5D /* Blur_h_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774318E4938000703C5D /* Blur_h_glsl.vert */; };
+		EDA5776B18E4938000703C5D /* Blur_v_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774418E4938000703C5D /* Blur_v_glsl.frag */; };
+		EDA5776C18E4938000703C5D /* Blur_v_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774518E4938000703C5D /* Blur_v_glsl.vert */; };
+		EDA5776D18E4938000703C5D /* CubeShadowMap_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774618E4938000703C5D /* CubeShadowMap_glsl.frag */; };
+		EDA5776E18E4938000703C5D /* CubeShadowMap_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774718E4938000703C5D /* CubeShadowMap_glsl.vert */; };
+		EDA5776F18E4938000703C5D /* Deferred_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774818E4938000703C5D /* Deferred_glsl.frag */; };
+		EDA5777018E4938000703C5D /* Deferred_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774918E4938000703C5D /* Deferred_glsl.vert */; };
+		EDA5777118E4938000703C5D /* FXAA_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774A18E4938000703C5D /* FXAA_glsl.frag */; };
+		EDA5777218E4938000703C5D /* FXAA_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774B18E4938000703C5D /* FXAA_glsl.vert */; };
+		EDA5777318E4938000703C5D /* Light_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774C18E4938000703C5D /* Light_glsl.frag */; };
+		EDA5777418E4938000703C5D /* Light_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774D18E4938000703C5D /* Light_glsl.vert */; };
+		EDA5777518E4938000703C5D /* SSAO_glsl.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774E18E4938000703C5D /* SSAO_glsl.frag */; };
+		EDA5777618E4938000703C5D /* SSAO_glsl.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDA5774F18E4938000703C5D /* SSAO_glsl.vert */; };
+		EDA5777718E4938000703C5D /* random.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA5775118E4938000703C5D /* random.png */; };
+		EDA5777D18E493D400703C5D /* AlphaToRGB_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5773E18E4938000703C5D /* AlphaToRGB_glsl.frag */; };
+		EDA5777E18E493D400703C5D /* AlphaToRGB_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5773F18E4938000703C5D /* AlphaToRGB_glsl.vert */; };
+		EDA5777F18E493D400703C5D /* BasicBlender_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774018E4938000703C5D /* BasicBlender_glsl.frag */; };
+		EDA5778018E493D400703C5D /* BasicBlender_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774118E4938000703C5D /* BasicBlender_glsl.vert */; };
+		EDA5778118E493D400703C5D /* Blur_h_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774218E4938000703C5D /* Blur_h_glsl.frag */; };
+		EDA5778218E493D400703C5D /* Blur_h_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774318E4938000703C5D /* Blur_h_glsl.vert */; };
+		EDA5778318E493D400703C5D /* Blur_v_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774418E4938000703C5D /* Blur_v_glsl.frag */; };
+		EDA5778418E493D400703C5D /* Blur_v_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774518E4938000703C5D /* Blur_v_glsl.vert */; };
+		EDA5778518E493D400703C5D /* CubeShadowMap_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774618E4938000703C5D /* CubeShadowMap_glsl.frag */; };
+		EDA5778618E493D400703C5D /* CubeShadowMap_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774718E4938000703C5D /* CubeShadowMap_glsl.vert */; };
+		EDA5778718E493D400703C5D /* Deferred_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774818E4938000703C5D /* Deferred_glsl.frag */; };
+		EDA5778818E493D400703C5D /* Deferred_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774918E4938000703C5D /* Deferred_glsl.vert */; };
+		EDA5778918E493D400703C5D /* FXAA_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774A18E4938000703C5D /* FXAA_glsl.frag */; };
+		EDA5778A18E493D400703C5D /* FXAA_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774B18E4938000703C5D /* FXAA_glsl.vert */; };
+		EDA5778B18E493D400703C5D /* Light_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774C18E4938000703C5D /* Light_glsl.frag */; };
+		EDA5778C18E493D400703C5D /* Light_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774D18E4938000703C5D /* Light_glsl.vert */; };
+		EDA5778D18E493D400703C5D /* SSAO_glsl.frag in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774E18E4938000703C5D /* SSAO_glsl.frag */; };
+		EDA5778E18E493D400703C5D /* SSAO_glsl.vert in Resources */ = {isa = PBXBuildFile; fileRef = EDA5774F18E4938000703C5D /* SSAO_glsl.vert */; };
+		EDA5779018E4941E00703C5D /* bunny.obj in Resources */ = {isa = PBXBuildFile; fileRef = EDA5778F18E4941E00703C5D /* bunny.obj */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		00B784AF0FF439BC000DE1D7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		16492426DF13472D87DC466B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2157B7CEF10E452FAC0CD760 /* ssaoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = ssaoApp.cpp; path = ../src/ssaoApp.cpp; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		47D35A30F0BA4A579E5CD900 /* ssao_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ssao_Prefix.pch; sourceTree = "<group>"; };
+		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		8D1107320486CEB800E47090 /* ssao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ssao.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7A83DD0E024A93BDF74BA8 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		B169D4AF51174F9FB64CB92C /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		EDA5773E18E4938000703C5D /* AlphaToRGB_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AlphaToRGB_glsl.frag; sourceTree = "<group>"; };
+		EDA5773F18E4938000703C5D /* AlphaToRGB_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AlphaToRGB_glsl.vert; sourceTree = "<group>"; };
+		EDA5774018E4938000703C5D /* BasicBlender_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BasicBlender_glsl.frag; sourceTree = "<group>"; };
+		EDA5774118E4938000703C5D /* BasicBlender_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BasicBlender_glsl.vert; sourceTree = "<group>"; };
+		EDA5774218E4938000703C5D /* Blur_h_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Blur_h_glsl.frag; sourceTree = "<group>"; };
+		EDA5774318E4938000703C5D /* Blur_h_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Blur_h_glsl.vert; sourceTree = "<group>"; };
+		EDA5774418E4938000703C5D /* Blur_v_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Blur_v_glsl.frag; sourceTree = "<group>"; };
+		EDA5774518E4938000703C5D /* Blur_v_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Blur_v_glsl.vert; sourceTree = "<group>"; };
+		EDA5774618E4938000703C5D /* CubeShadowMap_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CubeShadowMap_glsl.frag; sourceTree = "<group>"; };
+		EDA5774718E4938000703C5D /* CubeShadowMap_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CubeShadowMap_glsl.vert; sourceTree = "<group>"; };
+		EDA5774818E4938000703C5D /* Deferred_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Deferred_glsl.frag; sourceTree = "<group>"; };
+		EDA5774918E4938000703C5D /* Deferred_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Deferred_glsl.vert; sourceTree = "<group>"; };
+		EDA5774A18E4938000703C5D /* FXAA_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FXAA_glsl.frag; sourceTree = "<group>"; };
+		EDA5774B18E4938000703C5D /* FXAA_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FXAA_glsl.vert; sourceTree = "<group>"; };
+		EDA5774C18E4938000703C5D /* Light_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Light_glsl.frag; sourceTree = "<group>"; };
+		EDA5774D18E4938000703C5D /* Light_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Light_glsl.vert; sourceTree = "<group>"; };
+		EDA5774E18E4938000703C5D /* SSAO_glsl.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SSAO_glsl.frag; sourceTree = "<group>"; };
+		EDA5774F18E4938000703C5D /* SSAO_glsl.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SSAO_glsl.vert; sourceTree = "<group>"; };
+		EDA5775118E4938000703C5D /* random.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = random.png; sourceTree = "<group>"; };
+		EDA5775418E4938000703C5D /* CubeShadowMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeShadowMap.h; sourceTree = "<group>"; };
+		EDA5775518E4938000703C5D /* DeferredRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeferredRenderer.h; sourceTree = "<group>"; };
+		EDA5778F18E4941E00703C5D /* bunny.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = bunny.obj; path = ../resources/bunny.obj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */,
+				5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */,
+				5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */,
+				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
+				00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */,
+				00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */,
+				00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5773618E4938000703C5D /* DeferredRenderer */,
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
+		080E96DDFE201D6D7F000001 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2157B7CEF10E452FAC0CD760 /* ssaoApp.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00B784AF0FF439BC000DE1D7 /* Accelerate.framework */,
+				00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */,
+				00B784B10FF439BC000DE1D7 /* AudioUnit.framework */,
+				00B784B20FF439BC000DE1D7 /* CoreAudio.framework */,
+				5323E6B50EAFCA7E003A9687 /* QTKit.framework */,
+				5323E6B10EAFCA74003A9687 /* CoreVideo.framework */,
+				0091D8F80E81B9330029341E /* OpenGL.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* ssao.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* ssao */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5778F18E4941E00703C5D /* bunny.obj */,
+				01B97315FEAEA392516A2CEA /* Blocks */,
+				29B97315FDCFA39411CA2CEA /* Headers */,
+				080E96DDFE201D6D7F000001 /* Source */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = ssao;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8D7A83DD0E024A93BDF74BA8 /* Resources.h */,
+				47D35A30F0BA4A579E5CD900 /* ssao_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B169D4AF51174F9FB64CB92C /* CinderApp.icns */,
+				16492426DF13472D87DC466B /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDA5773618E4938000703C5D /* DeferredRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5773B18E4938000703C5D /* resources */,
+				EDA5775218E4938000703C5D /* src */,
+			);
+			name = DeferredRenderer;
+			path = ../../../../blocks/DeferredRenderer;
+			sourceTree = "<group>";
+		};
+		EDA5773B18E4938000703C5D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5773C18E4938000703C5D /* CinderDeferredResources */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		EDA5773C18E4938000703C5D /* CinderDeferredResources */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5773D18E4938000703C5D /* shaders */,
+				EDA5775018E4938000703C5D /* textures */,
+			);
+			path = CinderDeferredResources;
+			sourceTree = "<group>";
+		};
+		EDA5773D18E4938000703C5D /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5773E18E4938000703C5D /* AlphaToRGB_glsl.frag */,
+				EDA5773F18E4938000703C5D /* AlphaToRGB_glsl.vert */,
+				EDA5774018E4938000703C5D /* BasicBlender_glsl.frag */,
+				EDA5774118E4938000703C5D /* BasicBlender_glsl.vert */,
+				EDA5774218E4938000703C5D /* Blur_h_glsl.frag */,
+				EDA5774318E4938000703C5D /* Blur_h_glsl.vert */,
+				EDA5774418E4938000703C5D /* Blur_v_glsl.frag */,
+				EDA5774518E4938000703C5D /* Blur_v_glsl.vert */,
+				EDA5774618E4938000703C5D /* CubeShadowMap_glsl.frag */,
+				EDA5774718E4938000703C5D /* CubeShadowMap_glsl.vert */,
+				EDA5774818E4938000703C5D /* Deferred_glsl.frag */,
+				EDA5774918E4938000703C5D /* Deferred_glsl.vert */,
+				EDA5774A18E4938000703C5D /* FXAA_glsl.frag */,
+				EDA5774B18E4938000703C5D /* FXAA_glsl.vert */,
+				EDA5774C18E4938000703C5D /* Light_glsl.frag */,
+				EDA5774D18E4938000703C5D /* Light_glsl.vert */,
+				EDA5774E18E4938000703C5D /* SSAO_glsl.frag */,
+				EDA5774F18E4938000703C5D /* SSAO_glsl.vert */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
+		EDA5775018E4938000703C5D /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5775118E4938000703C5D /* random.png */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
+		EDA5775218E4938000703C5D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5775318E4938000703C5D /* CinderDeferred */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		EDA5775318E4938000703C5D /* CinderDeferred */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5775418E4938000703C5D /* CubeShadowMap.h */,
+				EDA5775518E4938000703C5D /* DeferredRenderer.h */,
+			);
+			path = CinderDeferred;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* ssao */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ssao" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ssao;
+			productInstallPath = "$(HOME)/Applications";
+			productName = ssao;
+			productReference = 8D1107320486CEB800E47090 /* ssao.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ssao" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* ssao */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* ssao */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA5779018E4941E00703C5D /* bunny.obj in Resources */,
+				EDA5777D18E493D400703C5D /* AlphaToRGB_glsl.frag in Resources */,
+				EDA5777E18E493D400703C5D /* AlphaToRGB_glsl.vert in Resources */,
+				EDA5777F18E493D400703C5D /* BasicBlender_glsl.frag in Resources */,
+				EDA5778018E493D400703C5D /* BasicBlender_glsl.vert in Resources */,
+				EDA5778118E493D400703C5D /* Blur_h_glsl.frag in Resources */,
+				EDA5778218E493D400703C5D /* Blur_h_glsl.vert in Resources */,
+				EDA5778318E493D400703C5D /* Blur_v_glsl.frag in Resources */,
+				EDA5778418E493D400703C5D /* Blur_v_glsl.vert in Resources */,
+				EDA5778518E493D400703C5D /* CubeShadowMap_glsl.frag in Resources */,
+				EDA5778618E493D400703C5D /* CubeShadowMap_glsl.vert in Resources */,
+				EDA5778718E493D400703C5D /* Deferred_glsl.frag in Resources */,
+				EDA5778818E493D400703C5D /* Deferred_glsl.vert in Resources */,
+				EDA5778918E493D400703C5D /* FXAA_glsl.frag in Resources */,
+				EDA5778A18E493D400703C5D /* FXAA_glsl.vert in Resources */,
+				EDA5778B18E493D400703C5D /* Light_glsl.frag in Resources */,
+				EDA5778C18E493D400703C5D /* Light_glsl.vert in Resources */,
+				EDA5778D18E493D400703C5D /* SSAO_glsl.frag in Resources */,
+				EDA5778E18E493D400703C5D /* SSAO_glsl.vert in Resources */,
+				8C42E9E4D0D0446989C5D9FA /* CinderApp.icns in Resources */,
+				EDA5777718E4938000703C5D /* random.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA5776C18E4938000703C5D /* Blur_v_glsl.vert in Sources */,
+				EDA5777118E4938000703C5D /* FXAA_glsl.frag in Sources */,
+				34D3ED784A8B40F3A80C8388 /* ssaoApp.cpp in Sources */,
+				EDA5776B18E4938000703C5D /* Blur_v_glsl.frag in Sources */,
+				EDA5777618E4938000703C5D /* SSAO_glsl.vert in Sources */,
+				EDA5776A18E4938000703C5D /* Blur_h_glsl.vert in Sources */,
+				EDA5777018E4938000703C5D /* Deferred_glsl.vert in Sources */,
+				EDA5777318E4938000703C5D /* Light_glsl.frag in Sources */,
+				EDA5776618E4938000703C5D /* AlphaToRGB_glsl.vert in Sources */,
+				EDA5776818E4938000703C5D /* BasicBlender_glsl.vert in Sources */,
+				EDA5776F18E4938000703C5D /* Deferred_glsl.frag in Sources */,
+				EDA5777218E4938000703C5D /* FXAA_glsl.vert in Sources */,
+				EDA5777418E4938000703C5D /* Light_glsl.vert in Sources */,
+				EDA5776518E4938000703C5D /* AlphaToRGB_glsl.frag in Sources */,
+				EDA5777518E4938000703C5D /* SSAO_glsl.frag in Sources */,
+				EDA5776D18E4938000703C5D /* CubeShadowMap_glsl.frag in Sources */,
+				EDA5776E18E4938000703C5D /* CubeShadowMap_glsl.vert in Sources */,
+				EDA5776718E4938000703C5D /* BasicBlender_glsl.frag in Sources */,
+				EDA5776918E4938000703C5D /* Blur_h_glsl.frag in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ssao_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				PRODUCT_NAME = ssao;
+				SDKROOT = macosx10.8;
+				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ssao_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				PRODUCT_NAME = ssao;
+				SDKROOT = macosx10.8;
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = ../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = ../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ssao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ssao" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
