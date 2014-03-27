@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E8069B34-A86C-4D66-B92F-7DD5C260F056</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AudioSvg</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1A7F89C5-C261-498E-88F3-E4C5FF612122</key>
+		<string>ssh://bitbucket.org/q_bit/cixtractreceiver.git</string>
+		<key>7117A2A9-29F5-4F35-BC94-5796BFB3EB3B</key>
+		<string>git://github.com/cinder/Cinder.git</string>
+		<key>9557C612-122C-437F-96BF-D8C9BAE313BE</key>
+		<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ciResonate/SoundAnalysis/AudioSvg/xcode/AudioSvg.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1A7F89C5-C261-498E-88F3-E4C5FF612122</key>
+		<string>../../../../../../blocks/ciXtractReceiver</string>
+		<key>7117A2A9-29F5-4F35-BC94-5796BFB3EB3B</key>
+		<string>../../../../../..</string>
+		<key>9557C612-122C-437F-96BF-D8C9BAE313BE</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/joshuajnoble/ciResonate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7117A2A9-29F5-4F35-BC94-5796BFB3EB3B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7117A2A9-29F5-4F35-BC94-5796BFB3EB3B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9557C612-122C-437F-96BF-D8C9BAE313BE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciResonate</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1A7F89C5-C261-498E-88F3-E4C5FF612122</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ciXtractReceiver</string>
+		</dict>
+	</array>
+</dict>
+</plist>

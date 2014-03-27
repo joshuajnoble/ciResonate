@@ -73,3 +73,4 @@ bld/
 *.app
 
 !3D_effects/assets/*
+!SoundAnalysis/AudioObj/assets/*
