@@ -64,6 +64,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+    void shutdown();
     
 	// CAPTURE
 	Capture			mCapture;
@@ -110,6 +111,11 @@ void motionHistAdvApp::setup()
     mMagnitude		= 50;
 }
 
+void motionHistAdvApp::shutdown()
+{
+    mCapture.stop();
+}
+
 void motionHistAdvApp::update()
 {
     if( !mCapture.checkNewFrame() ) {
@@ -133,7 +139,6 @@ void motionHistAdvApp::update()
     cv::absdiff( mCurrentFrame, mPrevFrame, mInput );
     cv::threshold( mInput, mInput, 20, 1, cv::THRESH_BINARY );
     
-    //void cv::updateMotionHistory( InputArray _silhouette, InputOutputArray _mhi, double timestamp, double duration )
     cv::updateMotionHistory( mInput, mHistory, secs, MHI_DURATION );
     
     cv::convertScaleAbs( mHistory, mMask, 255./MHI_DURATION, (MHI_DURATION - secs)*255.0/MHI_DURATION );
