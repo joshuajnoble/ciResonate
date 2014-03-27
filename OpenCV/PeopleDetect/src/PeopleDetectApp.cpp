@@ -41,17 +41,6 @@ void peopleDetectApp::setup()
     
     stillSurface = loadImage(loadAsset( "people_in_park.jpg" ) );
 	stillTex = gl::Texture(stillSurface);
-	
-//    try {
-//		fs::path path = getOpenFilePath( "", ImageIo::getLoadExtensions() );
-//		if( ! path.empty() ) {
-//			stillSurface = loadImage( path );
-//            stillTex = gl::Texture(stillSurface);
-//        }
-//	}
-//	catch( ... ) {
-//		console() << "unable to load image " << std::endl;
-//	}
     
 }
 
