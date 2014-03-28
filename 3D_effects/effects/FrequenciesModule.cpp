@@ -26,8 +26,6 @@ void FrequenciesModule::update( std::vector<FixtureRef> fixtures, FeatureDataRef
     int     dataOffset  = feature->getSize() * offset;                  // bin offset
     float   step        = (float)dataSize / (float)fixtures.size();     // fixture bins are equidistant
     
-    console() << step << " " << dataSize << " " << dataOffset << endl;
-    
     // update values
     for( size_t k=0; k < fixtures.size(); k++ )
     {

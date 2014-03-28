@@ -5,7 +5,7 @@
 #include "cinder/MayaCamUI.h"
 #include "cinder/params/Params.h"
 #include <fstream>
-
+#include "cinder/gl/GlslProg.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 
@@ -61,8 +61,10 @@ private:
     float                   mSpread, mOffset, mBrightness;
     float                   mSoundGain, mSoundDamping, mSoundOffset;
     
-    ciXtractReceiverRef     mXtract;			// ciXtract receiver instance
-    FeatureDataRef          mFeature;				// the data received
+    ciXtractReceiverRef     mXtract;                    // ciXtract receiver instance
+    FeatureDataRef          mFeature;                   // the data received
+
+	gl::GlslProgRef         mShader;
     
 };
 
@@ -133,11 +135,23 @@ void FrequenciesApp::setup()
     initialCam.setPerspective( 45.0f, ci::app::getWindowAspectRatio(), 0.1, 3000 );
     mMayaCam        = MayaCamUI( initialCam );
     
-    // Init LibXtract
+    // init LibXtract
     mXtract = ciXtractReceiver::create();
     //	mFeature   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
 	mFeature   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
     mFeature->setLog( true );
+    
+    // load the shader
+    try {
+		mShader = gl::GlslProg::create( loadAsset("shaders/simpleShader.vert"), loadAsset("shaders/simpleShader.frag") );
+	}
+	catch( gl::GlslProgCompileExc &exc ) {
+		std::cout << "Shader compile error: " << std::endl;
+		std::cout << exc.what();
+	}
+	catch( ... ) {
+		std::cout << "Unable to load shader" << std::endl;
+	}
 }
 
 
@@ -172,6 +186,8 @@ void FrequenciesApp::draw()
     gl::setMatrices( mMayaCam.getCamera() );                   // set camera matrices
     
     renderGrid();
+    
+//    mShader->bind();	
     
     if ( mVenueMeshes[mVenueId] )                              // render venue
     {
@@ -217,6 +233,8 @@ void FrequenciesApp::draw()
     
     if ( mModule )                                              // render effect preview
         mModule->render();
+    
+//    mShader->unbind();
     
     gl::setMatricesWindow( getWindowSize() );
     gl::disableDepthRead();

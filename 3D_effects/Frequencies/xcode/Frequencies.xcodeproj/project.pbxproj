@@ -13,6 +13,7 @@
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		10A8BD3D18E55782007A7BAC /* FrequenciesModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10A8BD3B18E55782007A7BAC /* FrequenciesModule.cpp */; };
+		10A8BD4518E5672A007A7BAC /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 10A8BD4418E5672A007A7BAC /* assets */; };
 		1F4160FBE0614F89A3499D8E /* OscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6770985385D44E51AF1861A2 /* OscBundle.cpp */; };
 		20D10C419D9F45EA9D4E42D2 /* ciXtractReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09DCF894A4348C6805DAF21 /* ciXtractReceiver.cpp */; };
 		3C55BBD962F64EA592A64107 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D1944EAA0654FA5AA1ABA43 /* NetworkingUtils.cpp */; };
@@ -43,6 +44,7 @@
 		10A8BD3A18E55782007A7BAC /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fixture.h; path = ../../effects/Fixture.h; sourceTree = "<group>"; };
 		10A8BD3B18E55782007A7BAC /* FrequenciesModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FrequenciesModule.cpp; path = ../../effects/FrequenciesModule.cpp; sourceTree = "<group>"; };
 		10A8BD3C18E55782007A7BAC /* FrequenciesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrequenciesModule.h; path = ../../effects/FrequenciesModule.h; sourceTree = "<group>"; };
+		10A8BD4418E5672A007A7BAC /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
 		12A3E38874BF47F1B9F5368E /* OscListener.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = OscListener.cpp; path = ../../../../blocks/OSC/src/OscListener.cpp; sourceTree = "<group>"; };
 		1CA47E460A1C4CF08196F8ED /* PacketListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PacketListener.h; path = ../../../../blocks/OSC/src/ip/PacketListener.h; sourceTree = "<group>"; };
 		214FBCE09BE74C4486D93295 /* UdpSocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = UdpSocket.cpp; path = ../../../../blocks/OSC/src/ip/posix/UdpSocket.cpp; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		29B97314FDCFA39411CA2CEA /* Frequencies */ = {
 			isa = PBXGroup;
 			children = (
+				10A8BD4418E5672A007A7BAC /* assets */,
 				10A8BD3918E55778007A7BAC /* Effects */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B8CC8DA71C402687F673C1 /* CinderApp.icns in Resources */,
+				10A8BD4518E5672A007A7BAC /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
