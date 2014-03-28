@@ -166,8 +166,8 @@ void motionHistAdvApp::update()
 				Rectf r = fromOcv( tmpRects[i] );
 				Vec2f pos = r.getCenter();
 				
-				float xp = cos( toRadians( mAngles[i] ) );
-				float yp = sin( toRadians( mAngles[i] ) );
+				float xp = cos( toRadians( mAngles.back() ) );
+				float yp = sin( toRadians( mAngles.back() ) );
 				Vec2f vel = Vec2f( xp, yp );
 				Area area = Area( r );
 				area.expand( area.getWidth()/3, area.getHeight()/3 );

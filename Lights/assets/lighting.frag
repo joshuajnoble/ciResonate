@@ -166,7 +166,7 @@ void main (void)
     ////////////////////////////////////////////////////////////
     // now add the material info
     
-    localColor = Ambient * max(mat_ambient, 0.00001) + Diffuse  * max(mat_diffuse, 0.00001) + texture2D(tex0, outtexcoord);
+    localColor = (Ambient * max(mat_ambient, 0.00001)) + (Diffuse * max(mat_diffuse, 0.00001)) * texture2D(tex0, outtexcoord);
     localColor += Specular * max(mat_specular, 0.00001);
 
     

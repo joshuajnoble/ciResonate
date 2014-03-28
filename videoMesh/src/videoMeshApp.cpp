@@ -63,7 +63,7 @@ void videoMeshApp::setup()
     plane.appendVertex(Vec3f(0, 20, 0));
     plane.appendTexCoord(Vec2f(0,1));
     
-    uint indices[6] = {0,1,2,2,3,0};
+	uint32_t indices[6] = {0,1,2,2,3,0};
     plane.appendIndices(&indices[0], 6);
     
     gl::VboMesh::Layout layout;
@@ -71,7 +71,7 @@ void videoMeshApp::setup()
     
     for( int x = 0; x < 20; x++ ) {
         for( int y = 0; y < 20; y++ ) {
-            positions.push_back(Vec3f( x * 32, y * 24, 0));
+            positions.push_back(Vec3f( (float) x * 32.f, (float) y * 24.f, 0.f));
             rotations.push_back(mRand.randFloat(0, 360));
         }
     }

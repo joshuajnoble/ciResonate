@@ -132,7 +132,7 @@ void SketchLine::calcRemainingPoints(const Vec2f & mouse, float timeAtLastPoint)
     vector<Vec3f>::iterator rIt = mLastLine->getPoints().end();
     rIt -= min( (int) mLastLine->getPoints().size(), mLength);
     
-    if(rIt == mLastLine->getPoints().end()) {
+    if(rIt == mLastLine->getPoints().end() || rIt+1 == mLastLine->getPoints().end()) {
         return;
     }
     
@@ -147,13 +147,15 @@ void SketchLine::calcRemainingPoints(const Vec2f & mouse, float timeAtLastPoint)
         
         Vec3f c = lastPoint;
         Vec3f delta;
-        
+
+
+
         delta = ( *(rIt) - *(rIt+1));
         c += (delta * linearDecay);
         
         pIt->set(c);
         
-        if(rIt != mLastLine->getPoints().end()) {
+        if(rIt != mLastLine->getPoints().end() && rIt+1 == mLastLine->getPoints().end()) {
             ++rIt;
         }
 
@@ -202,6 +204,8 @@ public:
 
 void polylineApp::setup()
 {
+
+	mRotation = 0;
     
     mousePressed = false;
     
@@ -227,8 +231,7 @@ void polylineApp::mouseUp( MouseEvent event )
     mousePressed = false;
     
     float depth = tan( mRotation * 0.01745);
-//    float depth = 0.01;
-    
+
     mLines[0].calcRemainingPoints(mouse, depth);
     mLines[1].calcRemainingPoints(mouse, depth);
     mLines[2].calcRemainingPoints(mouse, depth);
@@ -244,24 +247,20 @@ void polylineApp::mouseDown( MouseEvent event )
     mLines[0].calcPointsStart(mouse,depth);
     mLines[1].calcPointsStart(mouse,depth);
     mLines[2].calcPointsStart(mouse,depth);
-    
-    lastMouseDrag = getElapsedSeconds();
 }
 
 void polylineApp::mouseDrag(cinder::app::MouseEvent event)
 {
-//    mouse.y = event.getPos().y;
     mouse = event.getPos();
     
-    float depth = tan( mRotation * 0.01745);
-//    float depth = 0.01;
-    
-    mLines[0].addPoint(mouse, depth);
-    mLines[1].addPoint(mouse, depth);
-    mLines[2].addPoint(mouse, depth);
+    //float depth = tan( mRotation * 0.01745);
+    //
+    //mLines[0].addPoint(mouse, depth);
+    //mLines[1].addPoint(mouse, depth);
+    //mLines[2].addPoint(mouse, depth);
 
-    lastMouseDrag = getElapsedSeconds();
-    
+    //lastMouseDrag = getElapsedSeconds();
+    //
 }
 
 void polylineApp::update()
@@ -276,15 +275,14 @@ void polylineApp::update()
     
     if(mousePressed)
     {
-        float depth = tan( mRotation * 0.01745);
-        cout << depth << endl;
+        float depth = tan( mRotation * 0.01745 );
 
         mLines[0].addPoint(mouse, depth);
         mLines[1].addPoint(mouse, depth);
         mLines[2].addPoint(mouse, depth);
     }
     
-    mRotation += 0.5;
+    mRotation += 0.2;
     
 }
 

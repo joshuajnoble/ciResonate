@@ -102,9 +102,11 @@ void briefFastApp::draw()
         
         for( int i = 0; i < matches.size(); i++)
         {
-            if(scenePoints[matches.at(i).queryIdx].response > 10.0) {
-                gl::drawStrokedCircle(fromOcv(scenePoints[matches.at(i).queryIdx].pt), 5);
-            }
+			if(matches.at(i).queryIdx < scenePoints.size()) {
+				if(scenePoints[matches.at(i).queryIdx].response > 10.0) {
+					gl::drawStrokedCircle(fromOcv(scenePoints[matches.at(i).queryIdx].pt), 5);
+				}
+			}
         }
         
         gl::popMatrices();
