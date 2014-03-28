@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -13,28 +14,31 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
     <Filter Include="Blocks">
-      <UniqueIdentifier>{C0C40B7B-D693-4803-98C0-6B0F0349108C}</UniqueIdentifier>
+      <UniqueIdentifier>{CEBE61E3-55AA-462B-80F9-00B594187BEC}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\ciXtractReceiver">
-      <UniqueIdentifier>{27AB8603-861D-4A16-B4B6-A07DC7C4921E}</UniqueIdentifier>
+      <UniqueIdentifier>{A9B1A414-F6CC-46BC-BFF4-F0BD8D08221B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\ciXtractReceiver\src">
-      <UniqueIdentifier>{E59DC569-9984-4E48-8DF4-A9A7BEB3DD15}</UniqueIdentifier>
+      <UniqueIdentifier>{D426FAFB-F7D7-467B-AEC0-AC3FC25F5958}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\OSC">
-      <UniqueIdentifier>{545375F3-C11D-40BA-83ED-04BC0F7E0324}</UniqueIdentifier>
+      <UniqueIdentifier>{DC9E500F-75FC-40B5-8EE9-B1E02CB1F5AB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\OSC\src">
-      <UniqueIdentifier>{EC8BE9A2-2358-401E-89F5-5436E40D215D}</UniqueIdentifier>
+      <UniqueIdentifier>{FD2EF0C9-D208-4B05-A3B9-9B5A8A5D86D7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\OSC\src\ip">
-      <UniqueIdentifier>{EE336654-A797-49B8-84D5-736B116E03BD}</UniqueIdentifier>
+      <UniqueIdentifier>{BF3F6D5E-32F8-43C3-A99E-0E5D11B99695}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\OSC\src\osc">
-      <UniqueIdentifier>{5C6BB971-322E-43BE-B4DD-1C073660D681}</UniqueIdentifier>
+      <UniqueIdentifier>{CEB3C459-A3C2-4151-AFA8-F109A46443D2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\OSC\src\ip\win32">
-      <UniqueIdentifier>{B1977855-43FA-435C-A2CB-FB5A8BA596FB}</UniqueIdentifier>
+      <UniqueIdentifier>{F0616391-85F1-43E0-8CB2-E66C033A6C05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects">
+      <UniqueIdentifier>{77e0f8eb-66ae-4f9a-9eba-dd96155d3030}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,10 +144,19 @@
     <ClCompile Include="..\..\..\..\blocks\OSC\src\ip\win32\UdpSocket.cpp">
       <Filter>Blocks\OSC\src\ip\win32</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\effects\FrequenciesModule.cpp">
+      <Filter>Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\effects\Fixture.h">
+      <Filter>Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\effects\FrequenciesModule.h">
+      <Filter>Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
