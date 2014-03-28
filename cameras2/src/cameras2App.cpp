@@ -111,7 +111,7 @@ void cameras2App::planeMesh(float width, float height, int columns, int rows, Tr
         }
     }
                               
-    uint *indices = new uint[ (rows-1) * (columns-1) * 6 ];
+    uint32_t *indices = new uint32_t[ (rows-1) * (columns-1) * 6 ];
     int i = 0;
     
     for(int y = 0; y < rows-1; y++) {
