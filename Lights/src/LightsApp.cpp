@@ -3,6 +3,7 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/params/Params.h"
+#include "cinder/ImageIo.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -107,9 +108,13 @@ void LightsApp::draw()
     Vec4f diffuse(0, 1, 0, 1.0);
     mShader.uniform("lights[0].diffuse", mLight1Color);
     
-    float constantAttenuation = 0.000001;
-    float linearAttenuation = 0.000001;
-    float quadraticAttenuation = 0.000001;
+    //float constantAttenuation = 0.000001;
+    //float linearAttenuation = 0.000001;
+    //float quadraticAttenuation = 0.000001;
+
+	float constantAttenuation = 0.0001;
+    float linearAttenuation = 0.0001;
+    float quadraticAttenuation = 0.0001;
     
     mShader.uniform("lights[0].constantAttenuation", constantAttenuation);
     mShader.uniform("lights[0].linearAttenuation", linearAttenuation);

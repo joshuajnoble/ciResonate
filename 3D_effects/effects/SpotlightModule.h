@@ -1,5 +1,5 @@
 /*
- *  SpotlightModule.cpp
+ *  SpotlightModule.h
  *
  *  Created by Andrea Cuius
  *  www.nocte.co.uk

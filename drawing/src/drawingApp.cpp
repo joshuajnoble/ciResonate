@@ -88,7 +88,7 @@ void SketchLine::render(Color & color)
 {
     gl::color(color);
 
-    for (int i = 0; i < mLength; i++)  {
+    for (int i = 1; i < mLength; i++)  {
         
         //int size = i == 0 ? 4 : (mLocation[i-1].distance(mLocation[i]) / 2.0);
         //gl::drawSolidCircle(mLocation[i], size);
