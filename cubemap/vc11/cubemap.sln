@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Frequencies", "Frequencies.vcxproj", "{E59D2197-4124-43D7-ABFA-63494FDFC667}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cubemap", "cubemap.vcxproj", "{818BBAEC-39E4-4900-A2C5-B53D599C2602}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E59D2197-4124-43D7-ABFA-63494FDFC667}.Debug|Win32.ActiveCfg = Debug|Win32
-		{E59D2197-4124-43D7-ABFA-63494FDFC667}.Debug|Win32.Build.0 = Debug|Win32
-		{E59D2197-4124-43D7-ABFA-63494FDFC667}.Release|Win32.ActiveCfg = Release|Win32
-		{E59D2197-4124-43D7-ABFA-63494FDFC667}.Release|Win32.Build.0 = Release|Win32
+		{818BBAEC-39E4-4900-A2C5-B53D599C2602}.Debug|Win32.ActiveCfg = Debug|Win32
+		{818BBAEC-39E4-4900-A2C5-B53D599C2602}.Debug|Win32.Build.0 = Debug|Win32
+		{818BBAEC-39E4-4900-A2C5-B53D599C2602}.Release|Win32.ActiveCfg = Release|Win32
+		{818BBAEC-39E4-4900-A2C5-B53D599C2602}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

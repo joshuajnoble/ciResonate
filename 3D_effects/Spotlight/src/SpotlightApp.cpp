@@ -25,12 +25,6 @@ public:
 	void update();
 	void draw();
     
-    void loadFixtures( string fileName, bool flipZ = true );
-    
-    gl::VboMeshRef loadObj( string fileName );
-    
-    void renderGrid();
-    
     void keyDown( KeyEvent event );
     void mouseDown( ci::app::MouseEvent event );
     void mouseDrag( ci::app::MouseEvent event );
@@ -72,9 +66,7 @@ void SpotlightApp::prepareSettings( Settings *settings )
 
 void SpotlightApp::setup()
 {
-    addAssetDirectory( "../../../../assets/" );
-    
-    loadFixtures( "fixtures_001.csv" );                                             // load CSV fixtures file
+   mFixtures	= Fixture::loadFixtures( getAssetPath("fixtures_001.csv") );			// load CSV fixtures file
 
     vector<string> venues;
     venues.push_back("Sans_titre.obj");
@@ -82,12 +74,12 @@ void SpotlightApp::setup()
     venues.push_back("amfiteatr.obj");
     
     for( int k=0; k < venues.size(); k++ )
-        mVenueMeshes.push_back( loadObj( venues[k] ) );                             // load venues
+        mVenueMeshes.push_back( Fixture::loadObj( getAssetPath(venues[k]) ) );          // load venues
     
-    mFixtureMesh    = loadObj( "sphere.obj" );                                      // load Fixture mesh
-    mPianoMesh      = loadObj( "piano.obj" );                                       // load Fixture mesh
+    mFixtureMesh    = Fixture::loadObj( getAssetPath("sphere.obj") );                   // load Fixture mesh
+    mPianoMesh      = Fixture::loadObj( getAssetPath("piano.obj") );					// load Fixture mesh
 
-    mVenueId        = 0;                                                            // select the first one
+    mVenueId        = 0;																// select the first one
     mVenueColor     = ColorA( 0.5f, 0.5f, 0.5f, 0.8f );
     mPianoColor     = ColorA( 0.1f, 0.1f, 0.1f, 0.8f );
     
@@ -138,7 +130,7 @@ void SpotlightApp::draw()
     
     gl::setMatrices( mMayaCam.getCamera() );                   // set camera matrices
     
-    renderGrid();
+    Fixture::renderGrid();
     
     if ( mVenueMeshes[mVenueId] )                              // render venue
     {
@@ -186,96 +178,6 @@ void SpotlightApp::draw()
         mModule->render();
     
     mParams->draw();
-}
-
-
-void SpotlightApp::loadFixtures( string fileName, bool flipZ )
-{
-    console() << "Load fixtures file: " << fileName << endl;
-    
-    mFixtures.clear();                                                                  // destroy fixtures
-    
-    fs::path filePath = getAssetPath( fileName );                                       // get asset path
-    
-    ifstream openFile( filePath.generic_string().c_str() );                             // open file stream
-    
-    ci::Vec3f   pos;
-    std::string line;
-    int         c = 0;
-    
-    if ( openFile.is_open() )                                                           // read file and parse comma separated values, one fixture per line
-    {
-        while ( openFile.good() )
-        {
-            getline(openFile,line);                                                     // get line
-            
-            std::vector<std::string> splitValues;                                       // split comma separated values
-            boost::split(splitValues, line, boost::is_any_of(","));
-            
-            if ( splitValues.size() < 3 )                                               // we only import XYZ, check the line contains 3 values
-            {
-                console() << "Error parsing line #" << c << endl;
-                console() << line << endl;
-                
-                c++;
-                continue;
-            }
-            
-            pos.x = boost::lexical_cast<float>(splitValues.at(0));                      // get X
-            pos.y = boost::lexical_cast<float>(splitValues.at(1));                      // get Y
-            pos.z = boost::lexical_cast<float>(splitValues.at(2));                      // get Z
-            
-            if ( flipZ ) pos.z *= -1;                                                   // sometimes we need to flip the Z coords
-            
-            
-            mFixtures.push_back( Fixture::create( pos ) );    // create a new Fixture
-            
-            c++;
-        }
-        
-        openFile.close();
-    }
-    else
-        console() << "Failed loading file: " << filePath.generic_string() << endl;
-    
-    console() << "Loaded " << mFixtures.size() << " fixtures" << endl;
-}
-
-
-gl::VboMeshRef SpotlightApp::loadObj( string fileName )
-{
-    gl::VboMeshRef  vboMesh;
-    fs::path        filePath = getAssetPath( fileName );                                // get asset path
-    
-    
-    ObjLoader loader( (DataSourceRef)loadFile( filePath ) );                            // load .obj file
-    
-    TriMesh	mesh;                                                                       // load TriMesh
-    loader.load( &mesh );
-    
-    vboMesh = gl::VboMesh::create( mesh );                                              // create VBO mesh shared_ptr
-    
-    console() << "Loaded mesh: " << filePath.generic_string() << endl;
-    
-    return vboMesh;
-}
-
-
-void SpotlightApp::renderGrid()
-{
-    int     steps           = 10;                               // sizes in meters
-    float   size            = 1.0f;
-    float   halfLineLength  = size * steps * 0.5f;              // half line length
-    
-    ci::gl::color( Color::gray( 0.4f ) );
-    
-    for( float i = -halfLineLength; i <= halfLineLength; i += size )
-    {
-        ci::gl::drawLine( ci::Vec3f( i, 0.0f, -halfLineLength ), ci::Vec3f( i, 0.0f, halfLineLength ) );
-        ci::gl::drawLine( ci::Vec3f( -halfLineLength, 0.0f, i ), ci::Vec3f( halfLineLength, 0.0f, i ) );
-    }
-    
-    ci::gl::drawCoordinateFrame();                              // draw axis
 }
 
 
