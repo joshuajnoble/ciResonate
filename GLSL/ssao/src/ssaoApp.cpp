@@ -77,7 +77,7 @@ void ssaoApp::prepareSettings( Settings *settings )
 void ssaoApp::setup()
 {
     
-    gl::disableVerticalSync(); //so I can get a true representation of FPS (if higher than 60 anyhow :/)
+    gl::disableVerticalSync();
     
     RENDER_MODE = DeferredRenderer::SHOW_FINAL_VIEW;
     
@@ -174,7 +174,6 @@ void ssaoApp::update()
 {
     mCam = mMayaCam.getCamera();
     mDeferredRenderer.mCam = &mCam;
-    //mCurrFramerate = getAverageFps();
     
     float base = getElapsedSeconds();
     
@@ -198,7 +197,6 @@ void ssaoApp::draw()
 
 void ssaoApp::keyDown( KeyEvent event )
 {
-    float lightMovInc = 0.1f;
     
     switch ( event.getCode() )
     {
@@ -245,6 +243,35 @@ void ssaoApp::keyDown( KeyEvent event )
         case KeyEvent::KEY_d :
             mBunnyX+=0.5;
             break;
+        case KeyEvent::KEY_UP :
+        {
+            Vec3f camPos = mCam.getEyePoint();
+            mCam.setEyePoint(camPos + Vec3f(0,0.5,0));
+            mMayaCam.setCurrentCam(mCam);
+        }
+            break;
+        case KeyEvent::KEY_DOWN :
+        {
+            Vec3f camPos = mCam.getEyePoint();
+            mCam.setEyePoint(camPos + Vec3f(0,-0.5,0));
+            mMayaCam.setCurrentCam(mCam);
+        }
+            break;
+        case KeyEvent::KEY_LEFT :
+        {
+            Vec3f camPos = mCam.getEyePoint();
+            mCam.setEyePoint(camPos + Vec3f(-0.5,0,0));
+            mMayaCam.setCurrentCam(mCam);
+        }
+            break;
+        case KeyEvent::KEY_RIGHT :
+        {
+            Vec3f camPos = mCam.getEyePoint();
+            mCam.setEyePoint(camPos + Vec3f(0.5,0,0));
+            mMayaCam.setCurrentCam(mCam);
+        }
+            break;
+            
         
         default:
             break;
