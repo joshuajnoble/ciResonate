@@ -18,7 +18,8 @@ void main()
 	int binN		= int( ( spreadOffset + gl_MultiTexCoord0.x * spread ) * soundDataSize );
 	texPos.x		= float( mod( binN, int(texWidth) ) + 0.5 ) / texWidth;
 	texPos.y		= float( binN / int(texWidth) + 0.5 ) / texHeight;
-	gl_FrontColor   = tintColor * texture2D( dataTex, texPos );
-    
+    vec4 col        = texture2D( dataTex, texPos );
+	gl_FrontColor   = tintColor * col;
+    gl_FrontColor.a = col.r;
     gl_Position     = ftransform();
 }

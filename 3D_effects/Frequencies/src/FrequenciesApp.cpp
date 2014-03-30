@@ -49,6 +49,7 @@ private:
     float                   mFadeIn, mFadeOut;
     float                   mSpread, mOffset, mBrightness;
     float                   mSoundGain, mSoundDamping, mSoundOffset;
+    bool                    mIsLog;
     
     ciXtractReceiverRef     mXtract;                    // ciXtract receiver instance
     FeatureDataRef          mFeature;                   // the data received
@@ -92,6 +93,7 @@ void FrequenciesApp::setup()
     mSoundGain      = 1.0f;
     mSoundDamping   = 0.95f;
     mSoundOffset    = 0.0f;
+    mIsLog          = false;
     
     mModule         = FrequenciesModule::create();                                  // create module
     
@@ -114,17 +116,18 @@ void FrequenciesApp::setup()
     
     // sound
     mParams->addSeparator();
-    mParams->addParam( "Sound Gain",    &mSoundGain     , "min=0.1 max=50.0 step=0.1" );
+    mParams->addParam( "Sound Gain",    &mSoundGain     , "min=0.01 max=50.0 step=0.01" );
     mParams->addParam( "Sound Damping", &mSoundDamping  , "min=0.1 max=1.0 step=0.001" );
-    mParams->addParam( "Sound Offset",  &mSoundOffset   , "min=0.1 max=1.0 step=0.001" );
+    mParams->addParam( "Sound Offset",  &mSoundOffset   , "min=-1.0 max=1.0 step=0.001" );
+    mParams->addParam( "Log",           &mIsLog );
     
     ci::CameraPersp initialCam;                                                     // Initialise camera
-    initialCam.setPerspective( 45.0f, ci::app::getWindowAspectRatio(), 0.1, 3000 );
+    initialCam.setPerspective( 35.0f, ci::app::getWindowAspectRatio(), 0.1, 3000 );
     mMayaCam        = MayaCamUI( initialCam );
     
     // init LibXtract
     mXtract = ciXtractReceiver::create();
-    //	mFeature   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
+//    mFeature   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
 	mFeature   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
     mFeature->setLog( true );
     
@@ -149,6 +152,7 @@ void FrequenciesApp::update()
 		mFeature->setDamping( mSoundDamping );
 		mFeature->setGain( mSoundGain );
 		mFeature->setOffset( mSoundOffset );
+        mFeature->setLog( mIsLog );
 	}
     
     mXtract->update();

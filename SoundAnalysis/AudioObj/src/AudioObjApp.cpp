@@ -47,15 +47,15 @@ public:
     params::InterfaceGlRef  mParams;
 
     ciXtractReceiverRef     mXtract;			// ciXtract receiver instance
-    FeatureDataRef          mData;				// the data received
-	Surface32f				mDataSurf;			// data is stored in Surface
-	gl::Texture				mDataTex;			// use a Texture to pass the data to the shader
+    FeatureDataRef          mFeature;				// the data received
+	Surface32f				mFeatureSurf;			// data is stored in Surface
+	gl::Texture				mFeatureTex;			// use a Texture to pass the data to the shader
 
-    float                   mDataGain;
-    float                   mDataOffset;
-    float                   mDataDamping;
-    float                   mDataSpread;
-    float                   mDataSpreadOffset;
+    float                   mFeatureGain;
+    float                   mFeatureOffset;
+    float                   mFeatureDamping;
+    float                   mFeatureSpread;
+    float                   mFeatureSpreadOffset;
     ColorA                  mObjColor;
     gl::GlslProgRef         mShader;    
     MayaCamUI               mMayaCam;
@@ -73,12 +73,12 @@ void AudioObjApp::prepareSettings(Settings *settings)
 
 void AudioObjApp::setup()
 {
-    mDataGain           = 1.0f;
-    mDataOffset         = 0.0f;
-    mDataDamping        = 0.85f;
+    mFeatureGain           = 1.0f;
+    mFeatureOffset         = 0.0f;
+    mFeatureDamping        = 0.85f;
     
-    mDataSpread         = 1.0f;
-    mDataSpreadOffset   = 0.0f;
+    mFeatureSpread         = 1.0f;
+    mFeatureSpreadOffset   = 0.0f;
     
     mObjColor           = ColorA( 0.0f, 1.0f, 1.0f, 1.0f );
     mRenderWireframe    = true;
@@ -87,10 +87,9 @@ void AudioObjApp::setup()
     
     initGui();
     
-    mXtract = ciXtractReceiver::create();
-//	mData   = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
-	mData   = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
-    mData->setLog( true );
+    mXtract     = ciXtractReceiver::create();
+	mFeature    = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
+    mFeature->setLog( true );
     
     loadShader();
     
@@ -98,8 +97,8 @@ void AudioObjApp::setup()
 	initialCam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1, 1000 );
 	mMayaCam.setCurrentCam( initialCam );
 
-	mDataSurf	= Surface32f( 32, 32, false );	// we can store up to 1024 values(32x32)
-	mDataTex	= gl::Texture( 32, 32 );
+	mFeatureSurf	= Surface32f( 32, 32, false );	// we can store up to 1024 values(32x32)
+	mFeatureTex	= gl::Texture( 32, 32 );
 }
 
 
@@ -112,6 +111,12 @@ void AudioObjApp::keyDown( KeyEvent event )
 
     else if ( c == 'r' )
         loadShader();
+    
+    else if ( c == '1' )
+        mFeature = mXtract->getFeatureData( "XTRACT_SPECTRUM" );
+    
+    else if ( c == '2' )
+        mFeature = mXtract->getFeatureData( "XTRACT_BARK_COEFFICIENTS" );
 }
 
 void AudioObjApp::mouseDown( MouseEvent event )
@@ -150,26 +155,26 @@ void AudioObjApp::fileDrop( FileDropEvent event )
 
 void AudioObjApp::update()
 {
-	if ( mData )
+	if ( mFeature )
 	{
-		mData->setDamping( mDataDamping );
-		mData->setGain( mDataGain );
-		mData->setOffset( mDataOffset );
+		mFeature->setDamping( mFeatureDamping );
+		mFeature->setGain( mFeatureGain );
+		mFeature->setOffset( mFeatureOffset );
 	}
 
     mXtract->update();
 
-	if ( mData )
+	if ( mFeature )
 	{
 		// update Surface
 		int x, y;
-		for( int k=0; k < mData->getSize(); k++ )
+		for( int k=0; k < mFeature->getSize(); k++ )
 		{
-			x = k % mDataSurf.getWidth();
-			y = k / mDataSurf.getWidth();
-			mDataSurf.setPixel( Vec2i(x, y), Color::gray( mData->getDataValue(k) ) );
+			x = k % mFeatureSurf.getWidth();
+			y = k / mFeatureSurf.getWidth();
+			mFeatureSurf.setPixel( Vec2i(x, y), Color::gray( mFeature->getDataValue(k) ) );
 		}
-		mDataTex = gl::Texture( mDataSurf );
+		mFeatureTex = gl::Texture( mFeatureSurf );
 	}
 }
 
@@ -185,16 +190,16 @@ void AudioObjApp::draw()
 
 	gl::setMatrices( mMayaCam.getCamera() );
 	
-	if ( mData && mDataTex )
+	if ( mFeature && mFeatureTex )
 	{
 		mShader->bind();
-		mDataTex.enableAndBind();
+		mFeatureTex.enableAndBind();
 		mShader->uniform( "dataTex",		0 );
-		mShader->uniform( "texWidth",		(float)mDataTex.getWidth() );
-		mShader->uniform( "texHeight",		(float)mDataTex.getHeight() );
-		mShader->uniform( "soundDataSize",  (float)mData->getSize() );
-		mShader->uniform( "spread",         mDataSpread );
-		mShader->uniform( "spreadOffset",   mDataSpreadOffset );
+		mShader->uniform( "texWidth",		(float)mFeatureTex.getWidth() );
+		mShader->uniform( "texHeight",		(float)mFeatureTex.getHeight() );
+		mShader->uniform( "soundDataSize",  (float)mFeature->getSize() );
+		mShader->uniform( "spread",         mFeatureSpread );
+		mShader->uniform( "spreadOffset",   mFeatureSpreadOffset );
         mShader->uniform( "time",           (float)getElapsedSeconds() );
 		mShader->uniform( "tintColor",      mObjColor );
 	}
@@ -211,7 +216,7 @@ void AudioObjApp::draw()
         gl::disableWireframe();
     
 	mShader->unbind();
-	mDataTex.unbind();
+	mFeatureTex.unbind();
 
 	gl::color( Color::white() );
 //	gl::drawCoordinateFrame();
@@ -223,9 +228,9 @@ void AudioObjApp::draw()
     
 	gl::setMatricesWindow( getWindowSize() );
 
-	ciXtractReceiver::drawData( mData, Rectf( 15, getWindowHeight() - 150, 200, getWindowHeight() - 15 ) );
+	ciXtractReceiver::drawData( mFeature, Rectf( 15, getWindowHeight() - 150, 255, getWindowHeight() - 35 ) );
 	
-	gl::draw( mDataSurf );
+	gl::draw( mFeatureSurf );
 
     mParams->draw();
 }
@@ -269,11 +274,11 @@ void AudioObjApp::initGui()
     mParams = params::InterfaceGl::create( "Settings", Vec2f( 200, 250 ) );
     mParams->addParam( "Obj color",     &mObjColor );
     mParams->addParam( "Wireframe",     &mRenderWireframe );
-    mParams->addParam( "Data Gain",     &mDataGain,         "min=0.0 max=25.0 step=0.1" );
-    mParams->addParam( "Data Offset",   &mDataOffset,       "min=-1.0 max=1.0 step=0.01" );
-    mParams->addParam( "Data Damping",  &mDataDamping,      "min=0.0 max=0.99 step=0.01" );
-    mParams->addParam( "Spread",        &mDataSpread,       "min=0.0 max=1.0 step=0.01" );
-    mParams->addParam( "Spread Offset", &mDataSpreadOffset, "min=0.0 max=1.0 step=0.01" );
+    mParams->addParam( "Data Gain",     &mFeatureGain,         "min=0.0 max=25.0 step=0.1" );
+    mParams->addParam( "Data Offset",   &mFeatureOffset,       "min=-1.0 max=1.0 step=0.01" );
+    mParams->addParam( "Data Damping",  &mFeatureDamping,      "min=0.0 max=0.99 step=0.01" );
+    mParams->addParam( "Spread",        &mFeatureSpread,       "min=0.0 max=1.0 step=0.01" );
+    mParams->addParam( "Spread Offset", &mFeatureSpreadOffset, "min=0.0 max=1.0 step=0.01" );
 }
 
 
