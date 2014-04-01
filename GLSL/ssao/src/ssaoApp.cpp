@@ -81,15 +81,6 @@ void ssaoApp::setup()
     
     RENDER_MODE = DeferredRenderer::SHOW_FINAL_VIEW;
     
-//    mParams = params::InterfaceGl( "3D_Scene_Base", Vec2i( 225, 125 ) );
-//    mParams.addParam( "Framerate", &mCurrFramerate, "", true );
-//    mParams.addParam( "Selected Light Index", &mCurrLightIndex);
-//    mParams.addParam( "Show/Hide Params", &mShowParams, "key=x");
-//    mParams.addSeparator();
-//    
-//    mCurrFramerate = 0.0f;
-//    mShowParams = true;
-    
     //set up camera
     mCam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1f, 10000.0f );
     Vec3f camPos( -14.0f, 7.0f, -14.0f );

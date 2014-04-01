@@ -40,7 +40,7 @@ void HairShadingApp::setup()
 	loader.load( &mMesh );
     
     try {
-        mHairShader = gl::GlslProg( loadAsset("fur2.vert"), loadAsset("fur2.frag"), loadAsset("fur2.geom"), GL_TRIANGLES, GL_TRIANGLE_STRIP, 3);
+        mHairShader = gl::GlslProg( loadAsset("fur.vert"), loadAsset("fur.frag"), loadAsset("fur.geom"), GL_TRIANGLES, GL_TRIANGLE_STRIP, 3);
         
     } catch (gl::GlslProgCompileExc & e) {
         cout << e.what() << endl;

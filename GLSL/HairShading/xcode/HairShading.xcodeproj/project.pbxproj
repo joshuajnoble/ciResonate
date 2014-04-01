@@ -17,9 +17,6 @@
 		618DD3FDF5EA4CBCAE9F761F /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BF5A07A74E64C869231C392 /* CinderApp.icns */; };
 		814271F9CDD74146A275B290 /* HairShadingApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2497EA42D1024315BBD7DCA5 /* HairShadingApp.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		EDCF1A3018C045FD00D33412 /* fur2.frag in Sources */ = {isa = PBXBuildFile; fileRef = EDCF1A2D18C045FD00D33412 /* fur2.frag */; };
-		EDCF1A3118C045FD00D33412 /* fur2.geom in Sources */ = {isa = PBXBuildFile; fileRef = EDCF1A2E18C045FD00D33412 /* fur2.geom */; };
-		EDCF1A3218C045FD00D33412 /* fur2.vert in Sources */ = {isa = PBXBuildFile; fileRef = EDCF1A2F18C045FD00D33412 /* fur2.vert */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +36,6 @@
 		8290F7DA711847AC9D1EEBE4 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* HairShading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairShading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4896DC27D846D2B01782B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDCF1A2D18C045FD00D33412 /* fur2.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = fur2.frag; path = ../assets/fur2.frag; sourceTree = "<group>"; };
-		EDCF1A2E18C045FD00D33412 /* fur2.geom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = fur2.geom; path = ../assets/fur2.geom; sourceTree = "<group>"; };
-		EDCF1A2F18C045FD00D33412 /* fur2.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = fur2.vert; path = ../assets/fur2.vert; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +148,6 @@
 		ED92A3C718BDB3D50066418F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EDCF1A2D18C045FD00D33412 /* fur2.frag */,
-				EDCF1A2E18C045FD00D33412 /* fur2.geom */,
-				EDCF1A2F18C045FD00D33412 /* fur2.vert */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -224,10 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCF1A3018C045FD00D33412 /* fur2.frag in Sources */,
 				814271F9CDD74146A275B290 /* HairShadingApp.cpp in Sources */,
-				EDCF1A3118C045FD00D33412 /* fur2.geom in Sources */,
-				EDCF1A3218C045FD00D33412 /* fur2.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

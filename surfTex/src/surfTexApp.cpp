@@ -4,6 +4,7 @@
 #include "cinder/ImageIo.h"
 #include "cinder/Surface.h"
 #include "cinder/Utilities.h"
+#include "cinder/TriMesh.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,13 +19,32 @@ class surfTexApp : public AppNative {
     void keyDown( KeyEvent key );
 
 	gl::Texture mTex;
-    Surface mSurface;
+    Surface8u mSurface;
+    
+    TriMesh plane;
 };
 
 void surfTexApp::setup()
 {
     mSurface = Surface(loadImage( loadAsset("image.jpg")));
     mTex = gl::Texture(mSurface);
+
+    plane.appendVertex(Vec3f(0, 0, 0)); // [ (0,0,0) ]
+    plane.appendTexCoord(Vec2f(0,0));
+    
+    plane.appendVertex(Vec3f(600, 0, 0)); // [ (0,0,0), (600,0,0) ]
+    plane.appendTexCoord(Vec2f(1.f,0));
+    
+    plane.appendVertex(Vec3f(600, 600, 0)); // [ (0,0,0), (600,0,0), (600,600,0)]
+    plane.appendTexCoord(Vec2f(1.f,0.5f));
+    
+    plane.appendVertex(Vec3f(0, 600, 0)); // [ (0,0,0), (600,0,0), (600,600,0), (0,600,0)]
+    plane.appendTexCoord(Vec2f(0.f,0.5f));
+    
+    uint indices[6] = {0,1,2,2,3,0};
+    plane.appendIndices(&indices[0], 6);
+    
+    
 }
 
 void surfTexApp::mouseDown( MouseEvent event )
@@ -50,19 +70,22 @@ void surfTexApp::keyDown (cinder::app::KeyEvent key)
     if(key.getCode() == KeyEvent::KEY_m)
     {
         Surface copySurf = mSurface.clone();
+        
         Surface::ConstIter cit = mSurface.getIter();
         Surface::Iter it = copySurf.getIter();
+        
         while(  cit.line() && it.line()  )
         {
-            if(cit.y() != mSurface.getHeight())
+            if(cit.y() < mSurface.getHeight() - 1 && cit.x() < mSurface.getWidth() - 1  )
             {
                 while( cit.pixel() && it.pixel() )
                 {
                     it.b() = cit.r(0,1);
-                    it.r() = cit.g(0,1);
+                    it.r() = cit.g(1,1);
                     it.g() = cit.b(0,1);
                 }
             }
+
         }
         mTex = gl::Texture( copySurf );
     }
@@ -156,8 +179,14 @@ void surfTexApp::draw()
 {
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
+    //gl::draw( mTex, getWindowBounds());
     
-    gl::draw( mTex, getWindowBounds());
+    
+    mTex.enableAndBind(); // everything after this gets my texture
+    gl::draw(plane);
+    mTex.unbind(); // stop using my texture
+    
+
 }
 
 CINDER_APP_NATIVE( surfTexApp, RendererGl )

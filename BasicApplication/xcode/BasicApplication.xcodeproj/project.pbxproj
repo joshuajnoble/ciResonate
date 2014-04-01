@@ -12,13 +12,11 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		201F692943944BE0AB6C587B /* SimpleShadingApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84322DE62E6D4EC0AA916C6A /* SimpleShadingApp.cpp */; };
+		299C570BDB754608A4699500 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE17915374869976B2D29 /* CinderApp.icns */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		7FF408A50E4A4A3A9D7A1420 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = A831D55FA32F4A0F923C86DA /* CinderApp.icns */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		ED92033C18EAFD4A0017259F /* shader.frag in Sources */ = {isa = PBXBuildFile; fileRef = ED92033A18EAFD4A0017259F /* shader.frag */; };
-		ED92033D18EAFD4A0017259F /* shader.vert in Sources */ = {isa = PBXBuildFile; fileRef = ED92033B18EAFD4A0017259F /* shader.vert */; };
+		FA5BD348EDDB4F85B5C23C5B /* BasicApplicationApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 245538EC34E3483AACADD856 /* BasicApplicationApp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,19 +25,17 @@
 		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		0C969F7F7EA44237BABF783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		245538EC34E3483AACADD856 /* BasicApplicationApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = BasicApplicationApp.cpp; path = ../src/BasicApplicationApp.cpp; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		34B788FBBF674DD7AB1522D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		7BF6C53335F54FEABBB061F9 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
-		84322DE62E6D4EC0AA916C6A /* SimpleShadingApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = SimpleShadingApp.cpp; path = ../src/SimpleShadingApp.cpp; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* SimpleShading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleShading.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A831D55FA32F4A0F923C86DA /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
-		ED92033A18EAFD4A0017259F /* shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader.frag; path = ../assets/shader.frag; sourceTree = "<group>"; };
-		ED92033B18EAFD4A0017259F /* shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader.vert; path = ../assets/shader.vert; sourceTree = "<group>"; };
-		FB17C85E58904BD1BB430E68 /* SimpleShading_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = SimpleShading_Prefix.pch; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* BasicApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC25C8DDE6B449B814A104B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		EB1AE17915374869976B2D29 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		F7F008A9E04B4594B87BE175 /* BasicApplication_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = BasicApplication_Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +67,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				84322DE62E6D4EC0AA916C6A /* SimpleShadingApp.cpp */,
+				245538EC34E3483AACADD856 /* BasicApplicationApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -103,15 +99,14 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* SimpleShading.app */,
+				8D1107320486CEB800E47090 /* BasicApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* SimpleShading */ = {
+		29B97314FDCFA39411CA2CEA /* BasicApplication */ = {
 			isa = PBXGroup;
 			children = (
-				ED92033918EAFD3E0017259F /* Assets */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
 				080E96DDFE201D6D7F000001 /* Source */,
@@ -119,14 +114,14 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = SimpleShading;
+			name = BasicApplication;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				7BF6C53335F54FEABBB061F9 /* Resources.h */,
-				FB17C85E58904BD1BB430E68 /* SimpleShading_Prefix.pch */,
+				ACC25C8DDE6B449B814A104B /* Resources.h */,
+				F7F008A9E04B4594B87BE175 /* BasicApplication_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -134,8 +129,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A831D55FA32F4A0F923C86DA /* CinderApp.icns */,
-				0C969F7F7EA44237BABF783C /* Info.plist */,
+				EB1AE17915374869976B2D29 /* CinderApp.icns */,
+				34B788FBBF674DD7AB1522D5 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -149,21 +144,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ED92033918EAFD3E0017259F /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				ED92033A18EAFD4A0017259F /* shader.frag */,
-				ED92033B18EAFD4A0017259F /* shader.vert */,
-			);
-			name = Assets;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* SimpleShading */ = {
+		8D1107260486CEB800E47090 /* BasicApplication */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SimpleShading" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "BasicApplication" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -173,10 +159,10 @@
 			);
 			dependencies = (
 			);
-			name = SimpleShading;
+			name = BasicApplication;
 			productInstallPath = "$(HOME)/Applications";
-			productName = SimpleShading;
-			productReference = 8D1107320486CEB800E47090 /* SimpleShading.app */;
+			productName = BasicApplication;
+			productReference = 8D1107320486CEB800E47090 /* BasicApplication.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +172,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleShading" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BasicApplication" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -196,11 +182,11 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* SimpleShading */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* BasicApplication */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* SimpleShading */,
+				8D1107260486CEB800E47090 /* BasicApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -210,7 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FF408A50E4A4A3A9D7A1420 /* CinderApp.icns in Resources */,
+				299C570BDB754608A4699500 /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,9 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED92033D18EAFD4A0017259F /* shader.vert in Sources */,
-				ED92033C18EAFD4A0017259F /* shader.frag in Sources */,
-				201F692943944BE0AB6C587B /* SimpleShadingApp.cpp in Sources */,
+				FA5BD348EDDB4F85B5C23C5B /* BasicApplicationApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +224,7 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleShading_Prefix.pch;
+				GCC_PREFIX_HEADER = BasicApplication_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -249,7 +233,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
-				PRODUCT_NAME = SimpleShading;
+				PRODUCT_NAME = BasicApplication;
 				SDKROOT = macosx10.8;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -267,12 +251,12 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleShading_Prefix.pch;
+				GCC_PREFIX_HEADER = BasicApplication_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
-				PRODUCT_NAME = SimpleShading;
+				PRODUCT_NAME = BasicApplication;
 				SDKROOT = macosx10.8;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
@@ -285,7 +269,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../..;
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -302,7 +286,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../..;
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -317,7 +301,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "SimpleShading" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "BasicApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -326,7 +310,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleShading" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BasicApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

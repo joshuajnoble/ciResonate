@@ -94,7 +94,7 @@ void camerasApp::draw()
 	gl::clear( Color( 0, 0.1f, 0.2f ) );
     
     // draw the cube
-	gl::pushModelView();
+	gl::pushMatrices();
     gl::translate( getWindowCenter() );
     gl::rotate( mArcball.getQuat() );
     if(mTexture) {
@@ -102,7 +102,7 @@ void camerasApp::draw()
         gl::drawCube(Vec3f::zero(), Vec3f(320,320,320));
         mTexture->unbind();
     }
-	gl::popModelView();
+	gl::popMatrices();
     
 
 

@@ -32,14 +32,12 @@ void SimpleShadingApp::setup()
     {
         mShader = gl::GlslProg(loadAsset("shader.vert"), loadAsset("shader.frag"));
     }
-    catch ( std::exception error )
+    catch ( gl::GlslProgCompileExc & error )
     {
         console() << error.what() << endl;
     }
     
-    gl::Texture::Format format;
-    format.setTarget(GL_TEXTURE_RECTANGLE_ARB);
-    mTex = gl::Texture(loadImage(loadAsset("test.jpg")), format);
+    mTex = gl::Texture(loadImage(loadAsset("test.jpg")));
     
 }
 
@@ -68,6 +66,7 @@ void SimpleShadingApp::draw()
     mShader.bind();
     mShader.uniform("mouseX", mMouseX);
     mShader.uniform("tex0", 0);
+    mShader.uniform("divisor", (float) getElapsedSeconds());
     
     gl::drawSolidRect( getWindowBounds() );
     mTex.unbind();

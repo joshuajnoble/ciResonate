@@ -9,8 +9,9 @@ void main()
 {
     vec2 texcoord = gl_MultiTexCoord0.xy;
 
+    texCoordVarying = texcoord;
     // here we move the texture coordinates
-    texCoordVarying = vec2((texcoord.x * 640) + mouseX, texcoord.y * 480);
+    //texCoordVarying = vec2(texcoord.x + (mouseX/640.0), texcoord.y);
 
     // send the vertices to the fragment shader
 	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;;

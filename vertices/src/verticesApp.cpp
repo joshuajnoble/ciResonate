@@ -19,11 +19,13 @@ public:
 	void draw();
     void generateCapsule();
     
-    TriMesh mesh;
+    TriMesh mesh; // implicitly calling TriMesh mesh();
     PolyLine<Vec3f> line;
     vector<Vec3f> points;
     
     float mRadius, mHeight, mNumRings, mNumSegments, mNumSegHeight;
+    
+    int currentTriangle;
     
 };
 
@@ -33,9 +35,16 @@ void verticesApp::setup()
     mHeight = 100.0;
     mNumRings = 8;
     mNumSegments = 16;
-    mNumSegHeight = 100;
+    mNumSegHeight = 20;
     
     generateCapsule();
+    
+    vector<Vec3f> points;
+    vector<ColorAf> colors;
+    vector<Vec3f> normals;
+    vector<int> indices;
+    
+    currentTriangle = 0;
 }
 
 void verticesApp::generateCapsule()
@@ -63,12 +72,12 @@ void verticesApp::generateCapsule()
             double x0 = r0 * cosf(seg * fDeltaSegAngle);
             double z0 = r0 * sinf(seg * fDeltaSegAngle);
             
-            Vec3f p(x0, 0.5f*mHeight + y0, z0);
+            Vec3f p(x0, 0.5f * mHeight + y0, z0);
             Vec3f n(x0, y0, z0);
             mesh.appendVertex(p);
             mesh.appendNormal(n.normalized());
             mesh.appendTexCoord(Vec2f((double) seg / (double) mNumSegments, (double) ring / (double) mNumRings * sphereRatio));
-            mesh.appendColorRgb(Colorf(1.0, 1.0, 1.0));
+            mesh.appendColorRgb(Colorf(1.0, 0, 0));
             
             // each vertex (except the last) has six indices pointing to it
             indices.push_back(offset + mNumSegments + 1);
@@ -97,7 +106,7 @@ void verticesApp::generateCapsule()
             mesh.appendVertex(p);
             mesh.appendNormal(n.normalized());
             mesh.appendTexCoord(Vec2f(j/(double)mNumSegments, i/(double)mNumSegHeight * cylinderRatio + sphereRatio));
-            mesh.appendColorRgb(Colorf(1.0, 1.0, 1.0));
+            mesh.appendColorRgb(Colorf(0, 1.0 - (float(j)/float(mNumSegments)), 0));
 
             
             indices.push_back(offset + mNumSegments + 1);
@@ -130,7 +139,7 @@ void verticesApp::generateCapsule()
             mesh.appendVertex(p);
             mesh.appendNormal(n.normalized());
             mesh.appendTexCoord(Vec2f((double) seg / (double) mNumSegments, (double) ring / (double) mNumRings*sphereRatio + cylinderRatio + sphereRatio));
-            mesh.appendColorRgb(Colorf(1.0, 1.0, 1.0));
+            mesh.appendColorRgb(Colorf(0, 0, float(ring)/float(mNumRings)));
 
             
             if (ring != mNumRings) 
@@ -148,8 +157,6 @@ void verticesApp::generateCapsule()
     } // end for ring
     
     mesh.appendIndices( &indices[0], indices.size());
-	
-    cout << mesh.getVertices().size() << " " << mesh.getNormals().size() << endl;
 }
 
 void verticesApp::mouseDown( MouseEvent event )
@@ -158,16 +165,26 @@ void verticesApp::mouseDown( MouseEvent event )
 
 void verticesApp::update()
 {
+    currentTriangle+=3;
+    if(currentTriangle > mesh.getNumIndices()/3) {
+        currentTriangle = 0;
+    }
 }
 
 void verticesApp::draw()
 {
+    
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     gl::pushMatrices();
     gl::translate(300, 300);
-    //gl::color(255, 255, 255);
-    gl::draw(mesh);
+    gl::rotate( Vec3f( 0, 0, 360.f * sin(getElapsedSeconds()) ));
+
+    //gl::draw(mesh);
+    gl::drawRange(mesh, 0, currentTriangle);
     gl::popMatrices();
 }
 

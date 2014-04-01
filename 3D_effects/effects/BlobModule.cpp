@@ -36,9 +36,9 @@ void BlobModule::update( vector<FixtureRef> fixtures, float speed, float radius 
     float length, vel;
     for ( size_t k=0; k < mPoints.size(); k++ )
     {
-        vel          =  speed * 0.5f * ( 1.0f + cos( mPoints[k].dir.y + mPoints[k].dir.x + getElapsedSeconds() ) );
+        vel          =  speed * 0.5f * ( 1.0f + tanf( mPoints[k].dir.y + mPoints[k].dir.x + getElapsedSeconds() ) );
 //        vel             = speed * ( mPoints[k].dir.y + 2.0f * mPoints[k].dir.x + getElapsedSeconds() );
-        length          = radius * cos( vel );
+        length          = radius * (atanf( vel ));
         
         mPoints[k].pos  = length * mPoints[k].dir;
     }

@@ -29,6 +29,9 @@ class cameras2App : public AppNative {
 void cameras2App::setup()
 {
     
+//  glEnable( GL_CULL_FACE );
+//	glFrontFace( GL_CW ); // the default camera inverts to a clockwise front-facing direction
+    
     planeMesh(1024, 768, 320, 240, mMesh);
     
     CameraPersp cam;
@@ -133,8 +136,6 @@ void cameras2App::planeMesh(float width, float height, int columns, int rows, Tr
     mesh.appendIndices(&indices[0], ((rows-1) * (columns-1) * 6));
     
     delete[] indices;
-
-    //return mesh;
 }
 
 void cameras2App::draw()
@@ -145,9 +146,9 @@ void cameras2App::draw()
     gl::setMatrices( mMayaCam.getCamera() );
     
     //  (note: apply transformations to the model)
-	gl::pushModelView();
+	gl::pushMatrices();
         gl::draw( mMesh );
-	gl::popModelView();
+	gl::popMatrices();
 }
 
 CINDER_APP_NATIVE( cameras2App, RendererGl )
