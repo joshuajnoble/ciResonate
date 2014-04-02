@@ -17,10 +17,13 @@ class camBasicApp : public AppNative {
 	void update();
 	void draw();
     
-	CameraPersp		mCam;
-    MayaCamUI		mMayaCam;
+    void mouseDown( MouseEvent event );
+    void mouseDrag( MouseEvent event );
     
-    Vec3f           mSpin;
+	CameraPersp		mCam;
+  MayaCamUI		mMayaCam;
+    
+  Vec3f           mSpin;
     params::InterfaceGl mControls;
     
     
@@ -28,6 +31,16 @@ class camBasicApp : public AppNative {
     Vec3f           mLookAt, mPosition;
 
 };
+
+void camBasicApp::mouseDown(MouseEvent event)
+{
+    mMayaCam.mouseDown(event.getPos());
+}
+
+void camBasicApp::mouseDrag(MouseEvent event)
+{
+    mMayaCam.mouseDrag(event.getPos(), event.isLeftDown(), event.isMiddleDown(), event.isRightDown());
+}
 
 void camBasicApp::setup()
 {
@@ -40,9 +53,10 @@ void camBasicApp::setup()
     mPosition = Vec3f(3,3,3);
     mLookAt = Vec3f(0,0,0);
     
-    mCam = CameraPersp( getWindowWidth(), getWindowHeight(), 45 );
-	mCam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1f, 100.0f );
-	mCam.lookAt( Vec3f( 3, 3, 3 ), Vec3f::zero() );
+    //mCam = CameraPersp( getWindowWidth(), getWindowHeight(), 45 );
+	//mCam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1f, 10000.0f );
+    mCam.setPerspective( 45.0f, getWindowAspectRatio(), 0.1, 10000 );
+	//mCam.lookAt( Vec3f( 3, 3, 3 ), Vec3f::zero() );
     
     mSpin = Vec3f(0,0,0);
     
@@ -55,13 +69,16 @@ void camBasicApp::setup()
     mControls.addParam("LookAt", &mLookAt);
     mControls.addParam("Position", &mPosition);
 
+    // this is in setup
+    mMayaCam.setCurrentCam(mCam);
+    
 }
 
 void camBasicApp::update()
 {
     
-    mCam.setPerspective( mAngle, mAspect, mFront, mBack );
-	mCam.lookAt( mPosition, mLookAt );
+  //mCam.setPerspective( mAngle, mAspect, mFront, mBack );
+	//mCam.lookAt( mPosition, mLookAt );
     
 	// spin the scene by a few degrees around the y Axis
 	mSpin.y += 1.f;
@@ -69,17 +86,19 @@ void camBasicApp::update()
 
 void camBasicApp::draw()
 {
+    
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
 	gl::enableAlphaBlending();
 	
-	gl::setMatrices( mCam );
+	gl::setMatrices( mMayaCam.getCamera() );
 	gl::rotate( mSpin );
     
 	// draw the globe
 	gl::enableWireframe();
 	gl::color( ColorA( 1, 1, 0, 0.25f ) );
 	gl::drawSphere( Vec3f::zero(), 1, 20 );
+  gl::drawSphere( Vec3f(0,0,10), 1, 20 );
 	gl::disableWireframe();
     
     mControls.draw();

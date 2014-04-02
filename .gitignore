@@ -32,7 +32,6 @@ bld/
 *_i.h
 *.ilk
 *.meta
-*.obj
 *.pdb
 *.pgc
 *.pgd
